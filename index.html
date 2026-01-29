@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YME Travel Subsidiary | Strategic Business Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af; 
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Chart container constraint classes - explicitly defined for robustness */
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Tailwind max-w-xl is similar */
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        /* Timeline connector line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+        
+        .active-tab {
+            border-bottom: 2px solid #ea580c; /* Orange-600 */
+            color: #ea580c;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-orange-100 selection:text-orange-800">
+
+    <!-- Chosen Palette: Warm Neutrals with Burnt Orange Accent -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Immediate context and value proposition (Legacy Extension).
+         2. Strategic Context: Grid layout explaining the "Why" and "How" (Orgvein's role).
+         3. The Growth Engine: Interactive 5-Stage framework. Users click stages to understand the methodology.
+         4. Phase 1 Roadmap: A vertical interactive timeline. Users click weeks to see specific Objectives & Outputs.
+         5. Investment Architecture: A dashboard view with a Donut chart for fee breakdown and a breakdown table. 
+         6. Future Horizons: Card-based view of future phases.
+         Why this structure? It moves from the abstract (Vision) to the concrete (Methodology) to the specific (Timeline/Cost), facilitating a logical decision-making flow.
+    -->
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl text-orange-600 font-bold">Orgvein</span>
+                    <span class="text-slate-400">|</span>
+                    <span class="font-semibold text-slate-700">YME Proposal</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#vision" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Vision</a>
+                    <a href="#framework" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Growth Engine</a>
+                    <a href="#roadmap" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Phase 1 Roadmap</a>
+                    <a href="#investment" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Investment</a>
+                </div>
+                <button onclick="document.getElementById('contact').scrollIntoView()" class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors">
+                    Start Execution
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="vision" class="relative bg-white pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl mb-6">
+                <span class="block">Architecting the Future of</span>
+                <span class="block text-orange-600">YME Travel</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500 mb-10">
+                From Service to Experience. A strategic partnership to design, build, and scale a new leisure travel powerhouse—extending the YME legacy beyond borders.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-orange-600 text-xl font-bold mb-2">Legacy Extension</div>
+                    <p class="text-slate-600 text-sm">Leveraging YME's visa credibility to capture the leisure market with agility and flair.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-orange-600 text-xl font-bold mb-2">Single-Window</div>
+                    <p class="text-slate-600 text-sm">One partner for Strategy, Branding, Systems, Compliance, and Talent.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-orange-600 text-xl font-bold mb-2">Execution First</div>
+                    <p class="text-slate-600 text-sm">Moving beyond consulting to engineer the architecture required for scale.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Framework Section -->
+    <section id="framework" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">The 5-Stage Growth Engine</h2>
+                <p class="mt-4 text-lg text-slate-500">
+                    Our proprietary framework moves the subsidiary from concept to market leader with zero startup friction. Click on a stage to explore the methodology.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Navigation List -->
+                <div class="lg:w-1/3 space-y-2" id="framework-nav">
+                    <!-- Javascript will populate this -->
+                </div>
+
+                <!-- Content Display -->
+                <div class="lg:w-2/3 bg-white rounded-2xl shadow-sm border border-slate-200 p-8 min-h-[400px] flex flex-col justify-center transition-all duration-300" id="framework-content">
+                    <!-- Javascript will populate this -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1 Roadmap Section -->
+    <section id="roadmap" class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">Phase 1: Foundation Design (7-9 Weeks)</h2>
+                <p class="mt-4 text-lg text-slate-500 max-w-3xl">
+                    This phase is about decisiveness. We move through six critical workstreams to build absolute clarity before deployment. Select a week to view specific objectives and outputs.
+                </p>
+                <div class="mt-4 inline-flex items-center px-4 py-2 rounded-full bg-orange-50 text-orange-700 text-sm font-medium border border-orange-100">
+                    <span class="mr-2">⚠</span> Critical Dependency: Government Registration (~30 Days Parallel)
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Timeline Navigation (Left) -->
+                <div class="lg:col-span-5 relative timeline-line pl-2" id="timeline-list">
+                    <!-- JS Injected -->
+                </div>
+
+                <!-- Detail View (Right) -->
+                <div class="lg:col-span-7">
+                    <div id="timeline-detail" class="sticky top-24 bg-slate-50 rounded-xl p-8 border border-slate-200 shadow-lg transition-all duration-300">
+                        <div class="text-center text-slate-400 py-12">
+                            Select a week to view details
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Section -->
+    <section id="investment" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">Investment Structure: Phase 1</h2>
+                <p class="mt-4 text-lg text-slate-500">
+                    A consolidated strategic engagement fee of <strong>₹2,15,000</strong> covering all six design pillars. Hover over the chart or table to correlate costs with value delivered.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Chart Column -->
+                <div class="flex flex-col items-center">
+                    <div class="chart-wrapper">
+                        <canvas id="investmentChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-400 italic text-center">Interact with segments to highlight details</p>
+                </div>
+
+                <!-- Table Column -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <table class="min-w-full divide-y divide-slate-200">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Workstream</th>
+                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">Fee (INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200" id="investment-table-body">
+                            <!-- JS Injected -->
+                        </tbody>
+                        <tfoot class="bg-slate-50 font-bold">
+                            <tr>
+                                <td class="px-6 py-4 text-slate-900">Total Phase 1 Investment</td>
+                                <td class="px-6 py-4 text-right text-orange-600">₹2,15,000</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    
+                    <div class="px-6 py-4 bg-orange-50 border-t border-orange-100">
+                        <h4 class="text-sm font-semibold text-orange-800 mb-2">Payment Milestones</h4>
+                        <div class="grid grid-cols-3 gap-4 text-xs text-orange-700">
+                            <div>
+                                <span class="block font-bold text-lg">40%</span>
+                                Kickoff
+                            </div>
+                            <div>
+                                <span class="block font-bold text-lg">30%</span>
+                                Mid-Phase Review
+                            </div>
+                            <div>
+                                <span class="block font-bold text-lg">30%</span>
+                                Final Sign-off
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Phases Section -->
+    <section id="future" class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Scaling Beyond the Foundation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phase 2 -->
+                <div class="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all">
+                    <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-xs px-2 py-1 rounded-bl-lg font-mono group-hover:bg-orange-100 group-hover:text-orange-700">Implementation</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Phase 2: Build & Launch</h3>
+                    <p class="text-sm text-slate-500 mb-4">Translating approved designs into live systems. Website go-live, CRM setup, and hiring execution.</p>
+                    <div class="mt-auto space-y-2 border-t border-slate-100 pt-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Duration</span>
+                            <span class="font-medium text-slate-900">6–10 Weeks</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Est. Budget</span>
+                            <span class="font-medium text-orange-600">₹3.0L – ₹5.0L</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all">
+                    <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-xs px-2 py-1 rounded-bl-lg font-mono group-hover:bg-orange-100 group-hover:text-orange-700">Retainer</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Phase 3: Optimize</h3>
+                    <p class="text-sm text-slate-500 mb-4">Operational stabilization. SOP refinement, team coaching, and marketing maturity.</p>
+                    <div class="mt-auto space-y-2 border-t border-slate-100 pt-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Duration</span>
+                            <span class="font-medium text-slate-900">3–6 Months</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Est. Budget</span>
+                            <span class="font-medium text-orange-600">₹75k – ₹1.25L / mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 hover:shadow-lg transition-all">
+                    <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-xs px-2 py-1 rounded-bl-lg font-mono group-hover:bg-orange-100 group-hover:text-orange-700">Growth</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Phase 4: Scale</h3>
+                    <p class="text-sm text-slate-500 mb-4">Predictable revenue growth. Lead generation scale-up, new destinations, and expansion.</p>
+                    <div class="mt-auto space-y-2 border-t border-slate-100 pt-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Duration</span>
+                            <span class="font-medium text-slate-900">Ongoing</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-500">Est. Budget</span>
+                            <span class="font-medium text-orange-600">₹1.0L – ₹2.0L / mo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold mb-4">Ready for Takeoff?</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-8">
+                The travel industry rewards those who lead with clarity and systems. Partner with Orgvein to build the next chapter of the YME legacy on a foundation of discipline, data, and design.
+            </p>
+            <div class="inline-block bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg">
+                Authorized Signatory - Orgvein Services
+            </div>
+            <p class="mt-8 text-xs text-slate-600">© 2024 Orgvein Services. Confidential Business Proposal.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- Data Definitions ---
+
+        const frameworkData = [
+            {
+                id: 'stage1',
+                title: 'Stage 1: Diagnose (Intelligence)',
+                subtitle: 'Strategic Discovery',
+                desc: 'Even for a new entity, we don\'t move blindly. We scan the market landscape, analyze competitor gaps, and identify specific "blue ocean" opportunities where YME\'s existing trust gives us an unfair advantage.',
+                color: 'bg-slate-100 border-slate-300'
+            },
+            {
+                id: 'stage2',
+                title: 'Stage 2: Design (Architect)',
+                subtitle: 'Blueprint Definition',
+                desc: 'We define the blueprint. This is where we eliminate ambiguity regarding market positioning, legal structures, and financial models. We do not start building until the foundation is solid.',
+                color: 'bg-orange-50 border-orange-200 ring-2 ring-orange-500' // Highlight color for active focus
+            },
+            {
+                id: 'stage3',
+                title: 'Stage 3: Deploy (Forge)',
+                subtitle: 'Go-Live Execution',
+                desc: 'Moving from paper to reality. We launch the brand identity, configure the CRM/ERP systems, incorporate the legal entity, and execute the hiring of the core team.',
+                color: 'bg-slate-100 border-slate-300'
+            },
+            {
+                id: 'stage4',
+                title: 'Stage 4: Develop (Calibrate)',
+                subtitle: 'Stabilization & Training',
+                desc: 'Launching is just the start. The first 3-6 months are spent refining SOPs, coaching sales teams, and ensuring tech stack adoption to ensure operational efficiency.',
+                color: 'bg-slate-100 border-slate-300'
+            },
+            {
+                id: 'stage5',
+                title: 'Stage 5: Drive Growth (Accelerate)',
+                subtitle: 'Scaling Revenue',
+                desc: 'Once systems are stable, we push. Optimizing lead funnels, scaling performance marketing, and expanding into new destinations for exponential revenue growth.',
+                color: 'bg-slate-100 border-slate-300'
+            }
+        ];
+
+        const roadmapData = [
+            {
+                week: 'Week 1',
+                title: 'Identity & Incorporation',
+                objectives: [
+                    'Finalization of company name',
+                    'Alignment on brand naming hierarchy',
+                    'Initiation of government registrations (PAN, GST, etc.)',
+                    'Parallel kickoff of business scope definition'
+                ],
+                outputs: [
+                    'Approved company name',
+                    'Registration processes formally initiated',
+                    'Clear "Firewall" documented between Parent & Subsidiary'
+                ]
+            },
+            {
+                week: 'Week 2',
+                title: 'Brand Strategy & Market Positioning',
+                objectives: [
+                    'Target market & customer segment definition',
+                    'Service portfolio & offering structure',
+                    'Competitive positioning & differentiation',
+                    'Brand positioning statement'
+                ],
+                outputs: [
+                    'Brand strategy document',
+                    'Market & positioning framework'
+                ]
+            },
+            {
+                week: 'Week 3',
+                title: 'Brand Identity & Business Architecture',
+                objectives: [
+                    'Visual identity direction (logo, color, type)',
+                    'Brand usage principles',
+                    'Legal structure confirmation',
+                    'High-level operating model definition'
+                ],
+                outputs: [
+                    'Brand identity blueprint (design-ready)',
+                    'Legal & governance recommendation note'
+                ]
+            },
+            {
+                week: 'Weeks 4-6',
+                title: 'Financial, HR & Systems Architecture',
+                objectives: [
+                    'Accounting structure & chart of accounts',
+                    'Pricing logic & unit economics',
+                    'Org structure & hiring roadmap',
+                    'CRM / ERP requirements & tool selection',
+                    'End-to-end process flows (Sales, Ops, Finance)'
+                ],
+                outputs: [
+                    'Financial & commercial framework',
+                    'Org structure & HR architecture',
+                    'Systems & process architecture blueprint'
+                ]
+            },
+            {
+                week: 'Week 7',
+                title: 'Consolidation & Phase 1 Sign-off',
+                objectives: [
+                    'Consolidation of all outputs',
+                    'Leadership review & refinements',
+                    'Final documentation handover',
+                    'Formal Phase 2 readiness check'
+                ],
+                outputs: [
+                    'Signed-off Phase 1 Master Document',
+                    'Approved execution plan for Phase 2'
+                ]
+            }
+        ];
+
+        const investmentData = [
+            { label: 'Business & Market Strategy', value: 25000, desc: 'Clarity on target segments & services' },
+            { label: 'Brand Strategy & Visual Direction', value: 45000, desc: 'Design-ready identity & narrative' },
+            { label: 'Legal & Governance Design', value: 30000, desc: 'Robust structure & compliance mapping' },
+            { label: 'Financial & Unit Economics', value: 40000, desc: 'Pricing models & accounting controls' },
+            { label: 'Org Design & HR Architecture', value: 30000, desc: 'Hiring roadmap & performance logic' },
+            { label: 'Systems & Process Design', value: 45000, desc: 'Tech blueprint for automated ops' }
+        ];
+
+        // --- Visualization & Content Choices ---
+        // 1. Framework: Interactive List (Goal: Inform/Process)
+        // 2. Roadmap: Vertical Timeline (Goal: Change/Sequence)
+        // 3. Investment: Donut Chart + Interactive Table (Goal: Compare/Relationship)
+        // CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+
+        // --- Logic: Framework Section ---
+        const frameworkNav = document.getElementById('framework-nav');
+        const frameworkContent = document.getElementById('framework-content');
+        let activeStageIndex = 0;
+
+        function renderFramework() {
+            frameworkNav.innerHTML = '';
+            frameworkData.forEach((stage, index) => {
+                const btn = document.createElement('button');
+                const isActive = index === activeStageIndex;
+                btn.className = `w-full text-left px-6 py-4 rounded-xl border transition-all duration-200 flex items-center justify-between group ${isActive ? 'bg-orange-600 border-orange-600 text-white shadow-md' : 'bg-white border-slate-200 text-slate-600 hover:border-orange-300 hover:bg-orange-50'}`;
+                
+                btn.innerHTML = `
+                    <div>
+                        <span class="block text-xs uppercase tracking-wider opacity-75 font-semibold">${stage.id.replace('stage', 'Stage ')}</span>
+                        <span class="block font-bold text-lg">${stage.title.split(': ')[1]}</span>
+                    </div>
+                    <span class="text-2xl font-light opacity-50 ${isActive ? 'text-white' : 'text-slate-300'}">→</span>
+                `;
+                
+                btn.onclick = () => {
+                    activeStageIndex = index;
+                    renderFramework();
+                };
+                frameworkNav.appendChild(btn);
+            });
+
+            const stage = frameworkData[activeStageIndex];
+            frameworkContent.innerHTML = `
+                <div class="animate-fade-in">
+                    <div class="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
+                        ${stage.title}
+                    </div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-2">${stage.subtitle}</h3>
+                    <div class="h-1 w-20 bg-orange-500 mb-6"></div>
+                    <p class="text-lg text-slate-600 leading-relaxed">${stage.desc}</p>
+                </div>
+            `;
+        }
+
+        // --- Logic: Roadmap Section ---
+        const timelineList = document.getElementById('timeline-list');
+        const timelineDetail = document.getElementById('timeline-detail');
+
+        function renderRoadmap() {
+            timelineList.innerHTML = '';
+            roadmapData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = "relative pl-8 pb-8 group cursor-pointer";
+                
+                div.innerHTML = `
+                    <div class="absolute left-0 top-1 w-5 h-5 bg-white border-4 border-slate-300 rounded-full group-hover:border-orange-500 transition-colors z-10" id="dot-${index}"></div>
+                    <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wide group-hover:text-orange-600 transition-colors">${item.week}</h4>
+                    <p class="text-lg font-semibold text-slate-800 group-hover:text-slate-900">${item.title}</p>
+                `;
+
+                div.onclick = () => showTimelineDetail(index);
+                timelineList.appendChild(div);
+            });
+            // Show first by default
+            showTimelineDetail(0);
+        }
+
+        function showTimelineDetail(index) {
+            // Update dots
+            roadmapData.forEach((_, i) => {
+                const dot = document.getElementById(`dot-${i}`);
+                if(i === index) {
+                    dot.classList.remove('border-slate-300');
+                    dot.classList.add('border-orange-600');
+                } else {
+                    dot.classList.add('border-slate-300');
+                    dot.classList.remove('border-orange-600');
+                }
+            });
+
+            const item = roadmapData[index];
+            timelineDetail.innerHTML = `
+                <div class="animate-fade-in">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">${item.title}</h3>
+                    <p class="text-orange-600 font-medium mb-6">${item.week}</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-700 mb-3 border-b border-slate-200 pb-2">Strategic Objectives</h4>
+                            <ul class="space-y-2">
+                                ${item.objectives.map(obj => `<li class="flex items-start text-sm text-slate-600"><span class="mr-2 text-orange-500">•</span>${obj}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-700 mb-3 border-b border-slate-200 pb-2">Key Outputs</h4>
+                            <ul class="space-y-2">
+                                ${item.outputs.map(out => `<li class="flex items-start text-sm text-slate-600"><span class="mr-2 text-green-500">✓</span>${out}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- Logic: Investment Section (Chart + Table) ---
+        function initInvestment() {
+            const ctx = document.getElementById('investmentChart').getContext('2d');
+            
+            // Colors from palette
+            const colors = [
+                '#ea580c', // Orange 600
+                '#f97316', // Orange 500
+                '#fb923c', // Orange 400
+                '#fdba74', // Orange 300
+                '#fed7aa', // Orange 200
+                '#94a3b8'  // Slate 400 (Contrast)
+            ];
+
+            const chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: investmentData.map(d => d.label),
+                    datasets: [{
+                        data: investmentData.map(d => d.value),
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: '#ffffff',
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ₹${context.raw.toLocaleString()}`;
+                                }
+                            },
+                            backgroundColor: 'rgba(23, 23, 23, 0.9)',
+                            padding: 12,
+                            cornerRadius: 8
+                        }
+                    },
+                    onHover: (event, elements) => {
+                        const rows = document.querySelectorAll('#investment-table-body tr');
+                        rows.forEach(r => r.classList.remove('bg-orange-50'));
+                        
+                        if(elements.length > 0) {
+                            const index = elements[0].index;
+                            rows[index].classList.add('bg-orange-50');
+                        }
+                    }
+                }
+            });
+
+            // Populate Table
+            const tableBody = document.getElementById('investment-table-body');
+            investmentData.forEach((item, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors border-l-4 border-transparent";
+                tr.innerHTML = `
+                    <td class="px-6 py-4">
+                        <div class="flex items-center">
+                            <span class="w-3 h-3 rounded-full mr-3" style="background-color: ${colors[index]}"></span>
+                            <div>
+                                <div class="text-sm font-medium text-slate-900">${item.label}</div>
+                                <div class="text-xs text-slate-500">${item.desc}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-slate-600 font-medium">₹${item.value.toLocaleString()}</td>
+                `;
+                
+                // Add hover effect back to chart
+                tr.addEventListener('mouseenter', () => {
+                    chart.setActiveElements([{ datasetIndex: 0, index: index }]);
+                    chart.update();
+                    tr.classList.add('bg-orange-50', 'border-orange-500');
+                });
+                tr.addEventListener('mouseleave', () => {
+                    chart.setActiveElements([]);
+                    chart.update();
+                    tr.classList.remove('bg-orange-50', 'border-orange-500');
+                });
+
+                tableBody.appendChild(tr);
+            });
+        }
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFramework();
+            renderRoadmap();
+            initInvestment();
+        });
+
+    </script>
+</body>
+</html>

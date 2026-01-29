@@ -42,7 +42,7 @@
 
         /* --- INVESTMENT ARCHITECTURE --- */
         .investment-v-bar {
-            width: 6px;
+            width: 4px;
             background: #f1f5f9;
             border-radius: 99px;
             position: relative;
@@ -51,20 +51,20 @@
 
         .v-segment {
             width: 100%;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
-            opacity: 0.2;
+            opacity: 0.15;
         }
 
         .v-segment.active {
             opacity: 1;
-            transform: scaleX(3);
+            transform: scaleX(4);
             z-index: 10;
         }
 
         .sticky-visual-column {
             position: sticky;
-            top: 25%;
+            top: 30%;
             height: 40vh;
             display: flex;
             flex-direction: column;
@@ -73,34 +73,34 @@
         }
 
         .investment-section-trigger {
-            min-height: 15vh;
+            min-height: 25vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0.15;
-            transition: all 0.6s ease;
-            padding: 1.5rem 0;
+            opacity: 0.1;
+            transition: all 0.5s ease;
+            padding: 2rem 0;
         }
 
         .investment-section-trigger.active {
             opacity: 1;
-            transform: translateX(15px);
+            transform: translateX(10px);
         }
 
-        /* Value Spotlight - Initial Hidden State */
+        /* Value Spotlight - Refined Ratios & Snappy Visibility */
         #value-spotlight {
             position: fixed;
-            bottom: 1.5rem;
+            bottom: 2rem;
             left: 50%;
-            transform: translateX(-50%) translateY(120%);
-            width: 90%;
-            max-width: 380px;
+            transform: translateX(-50%) translateY(30px);
+            width: 85%;
+            max-width: 340px;
             background: #0d2a30;
-            padding: 1.25rem;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 40px -10px rgba(13, 42, 48, 0.4);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 1rem 1.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            transition: transform 0.3s cubic-bezier(0.17, 0.84, 0.44, 1), opacity 0.2s ease, visibility 0.2s;
             z-index: 100;
             display: flex;
             align-items: center;
@@ -118,14 +118,14 @@
         @media (min-width: 1024px) {
             #value-spotlight {
                 position: absolute;
-                bottom: -2rem;
+                bottom: -4rem;
                 left: 0;
-                transform: translateY(120%);
-                width: 100%;
+                transform: translateY(20px);
+                width: 280px;
                 max-width: none;
             }
             #value-spotlight.visible {
-                transform: translateY(100%);
+                transform: translateY(0);
             }
         }
 
@@ -146,16 +146,16 @@
         @media (max-width: 767px) {
             .investment-grid {
                 display: flex;
-                gap: 1rem;
+                gap: 1.5rem;
             }
             .sticky-visual-column {
-                width: 25px;
+                width: 20px;
                 height: 40vh;
             }
         }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden text-slate-900">
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
@@ -165,7 +165,7 @@
                     <div class="h-10 w-10 md:h-12 md:w-12 flex-shrink-0 bg-white rounded-full p-0.5 border border-slate-200 overflow-hidden">
                         <img src="logo1.jpg" alt="Orgvein" class="h-full w-full object-cover rounded-full" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
                     </div>
-                    <div class="flex flex-col">
+                    <div class="flex flex-col text-left">
                         <span class="font-extrabold text-base md:text-lg leading-none text-[#0d2a30]">Orgvein</span>
                         <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-[#c5a059] font-bold">Strategic Proposal</span>
                     </div>
@@ -177,17 +177,17 @@
                     <a href="#roadmap" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Roadmap</a>
                     <a href="#investment" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Investment</a>
                 </div>
-                <div class="md:hidden text-[#c5a059] font-bold text-[10px]">PROPOSAL</div>
+                <div class="md:hidden text-[#c5a059] font-bold text-[10px] tracking-widest">PROPOSAL</div>
             </div>
         </div>
     </nav>
 
-    <!-- Content Sections -->
+    <!-- Vision Section -->
     <section id="vision" class="pt-12 pb-16 md:pt-24 md:pb-24 bg-gradient-to-br from-slate-50 to-[#0d2a30]/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-20">
                 <div class="inline-flex items-center px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-[#0d2a30] text-[#c5a059] text-[9px] md:text-xs font-black uppercase tracking-widest mb-6 md:mb-8 border border-[#c5a059]/30">
-                    High-Performance Strategy
+                    Growth Enablement
                 </div>
                 <h1 class="text-3xl md:text-7xl font-extrabold text-[#0d2a30] tracking-tight mb-6 leading-tight">
                     Building the <span class="text-[#c5a059]">YME Travel Legacy</span>
@@ -218,10 +218,10 @@
         </div>
     </section>
 
-    <!-- Engine -->
+    <!-- Growth Engine -->
     <section id="strategy" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-10">The 5-Stage Growth Engine</h2>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-10 text-left">The 5-Stage Growth Engine</h2>
             <div class="max-w-4xl mx-auto flex flex-col gap-4" id="engine-accordion"></div>
         </div>
     </section>
@@ -229,52 +229,54 @@
     <!-- Roadmap -->
     <section id="roadmap" class="py-16 md:py-24 bg-slate-50 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-12">Strategic Roadmap</h2>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-12 text-left">Strategic Roadmap</h2>
             <div class="relative max-w-4xl mx-auto">
                 <div class="space-y-8 md:space-y-12" id="timeline-container"></div>
             </div>
         </div>
     </section>
 
-    <!-- Investment Architecture -->
-    <section id="investment" class="py-12 md:py-20 bg-white border-t border-slate-100">
+    <!-- Investment Architecture (Scroll Managed) -->
+    <section id="investment" class="py-20 md:py-32 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 md:mb-40">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Commercial Architecture</h2>
-                <p class="text-slate-500 text-base md:text-lg">Total Engagement: <span class="text-[#0d2a30] font-black">₹2,15,000</span></p>
+            <div class="text-center mb-16 md:mb-32">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Investment Architecture</h2>
+                <p class="text-slate-500 text-base md:text-lg">Total Phase 1 Engagement: <span class="text-[#0d2a30] font-black">₹2,15,000</span></p>
             </div>
 
             <div class="investment-grid max-w-5xl mx-auto relative">
-                <!-- Left: Sticky Column -->
+                <!-- Left Sticky Column -->
                 <div class="sticky-visual-column">
                     <div class="investment-v-bar" id="vertical-bar"></div>
 
-                    <!-- VALUE PANEL - Controlled by updateSpotlight -->
+                    <!-- VALUE SPOTLIGHT -->
                     <div id="value-spotlight">
-                        <div class="flex-grow">
-                            <span id="spotlight-name" class="block text-[9px] uppercase font-black text-[#c5a059] tracking-widest mb-1">Workstream</span>
-                            <span id="spotlight-fee" class="text-2xl md:text-3xl font-black text-white">₹00,000</span>
+                        <div class="text-left">
+                            <span id="spotlight-name" class="block text-[8px] uppercase font-black text-[#c5a059] tracking-widest mb-1 truncate max-w-[180px]">Workstream</span>
+                            <span id="spotlight-fee" class="text-xl md:text-3xl font-black text-white">₹00,000</span>
                         </div>
-                        <div class="h-10 w-10 bg-white/10 rounded-full flex items-center justify-center">
-                            <svg class="w-5 h-5 text-[#c5a059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        <div class="h-8 w-8 md:h-10 md:w-10 bg-white/10 rounded-full flex items-center justify-center shrink-0 ml-4">
+                            <svg class="w-4 h-4 md:w-5 md:h-5 text-[#c5a059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Content Scroll -->
-                <div id="investment-content-scroll" class="md:pl-12"></div>
+                <!-- Right Scroll Column -->
+                <div id="investment-content-scroll" class="md:pl-16"></div>
             </div>
 
-            <div class="mt-20 bg-slate-50 rounded-[2.5rem] p-8 md:p-12 border border-slate-100">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center text-center md:text-left">
+            <!-- Commercial Footer -->
+            <div class="mt-32 bg-slate-50 rounded-[2.5rem] p-8 md:p-16 border border-slate-100 text-left">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <p class="text-2xl md:text-3xl font-extrabold text-[#0d2a30] mb-4">Scalable from Day One.</p>
-                        <p class="text-slate-500 text-sm">We design the architecture for the subsidiary before a single rupee is spent on customer acquisition.</p>
+                        <h4 class="text-[#c5a059] text-xs font-black uppercase tracking-widest mb-3">Commitment</h4>
+                        <p class="text-2xl md:text-3xl font-extrabold text-[#0d2a30] leading-tight mb-4">Scalable from Day One.</p>
+                        <p class="text-slate-500 text-sm md:text-base leading-relaxed">We architect the subsidiary's operational logic, brand narrative, and financial systems before capital is committed to customer acquisition.</p>
                     </div>
                     <div class="grid grid-cols-1 gap-3">
-                        <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center"><span class="text-slate-400 font-bold text-[9px]">KICKOFF</span><span class="text-xl font-black text-[#0d2a30]">40%</span></div>
-                        <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center"><span class="text-slate-400 font-bold text-[9px]">STRATEGY</span><span class="text-xl font-black text-[#0d2a30]">30%</span></div>
-                        <div class="bg-white p-4 rounded-xl border border-[#c5a059]/30 flex justify-between items-center"><span class="text-[#c5a059] font-bold text-[9px]">HANDOVER</span><span class="text-xl font-black text-[#c5a059]">30%</span></div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm flex justify-between items-center"><span class="text-slate-400 font-bold uppercase text-[9px]">Kickoff</span><span class="text-xl font-black text-[#0d2a30]">40%</span></div>
+                        <div class="bg-white p-5 rounded-2xl shadow-sm flex justify-between items-center"><span class="text-slate-400 font-bold uppercase text-[9px]">Strategy Sign-off</span><span class="text-xl font-black text-[#0d2a30]">30%</span></div>
+                        <div class="bg-white p-5 rounded-2xl border border-[#c5a059]/30 flex justify-between items-center"><span class="text-[#c5a059] font-bold uppercase text-[9px]">Phase 1 sign-off</span><span class="text-xl font-black text-[#c5a059]">30%</span></div>
                     </div>
                 </div>
             </div>
@@ -285,7 +287,7 @@
     <footer class="bg-[#0d2a30] text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <img src="logo1.jpg" alt="Orgvein" class="h-14 w-14 mx-auto rounded-full mb-4 border-2 border-[#c5a059] object-cover" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
-            <h2 class="text-2xl font-bold text-[#c5a059] mb-2">Ready for Takeoff</h2>
+            <h2 class="text-2xl font-bold text-[#c5a059] mb-2 tracking-tight uppercase">Ready for Takeoff</h2>
             <div class="text-[9px] text-slate-500 uppercase tracking-widest mt-8">Prepared by Orgvein Services | © 2024</div>
         </div>
     </footer>
@@ -308,12 +310,12 @@
         ];
 
         const investmentData = [
-            { section: "Brand & Identity", fee: 45000, color: "#c5a059", value: "Creative Identity & visual language that converts." },
-            { section: "Systems & ERP", fee: 45000, color: "#1e3a40", value: "A tech hub built for scale and automation." },
-            { section: "Financial Design", fee: 40000, color: "#d4af37", value: "Profit-focused unit economics & architecture." },
-            { section: "Legal & Structure", fee: 30000, color: "#0d2a30", value: "Regulatory framework & parent-entity firewall." },
-            { section: "Org & HR Design", fee: 30000, color: "#2a4a50", value: "The talent roadmap for a winning team." },
-            { section: "Market Positioning", fee: 25000, color: "#e2c275", value: "Growth direction & segment focus." }
+            { section: "Brand Strategy", fee: 45000, color: "#c5a059", value: "Creative identity & visual systems that establish immediate market authority." },
+            { section: "Systems & ERP", fee: 45000, color: "#1e3a40", value: "Automated tech hub designed for high-volume lead conversion." },
+            { section: "Financial Design", fee: 40000, color: "#d4af37", value: "Profit-focused unit economics and inter-company boundary framework." },
+            { section: "Legal & Structure", fee: 30000, color: "#0d2a30", value: "Corporate registration and protective parent-entity firewall." },
+            { section: "Org & HR Design", fee: 30000, color: "#2a4a50", value: "Hiring roadmap and incentive logic for the first 18 months of growth." },
+            { section: "Market Positioning", fee: 25000, color: "#e2c275", value: "Strategic differentiation and customer segment prioritization." }
         ];
 
         function renderEngine() {
@@ -322,7 +324,7 @@
                 const item = document.createElement('div');
                 item.className = `engine-item border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm ${index === 0 ? 'active border-[#c5a059]' : ''}`;
                 item.innerHTML = `
-                    <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleEngine(${index})">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left" onclick="toggleEngine(${index})">
                         <div class="flex items-center gap-4">
                             <span class="text-xl">${stage.icon}</span>
                             <div>
@@ -335,7 +337,7 @@
                         </div>
                     </button>
                     <div class="engine-content-wrapper">
-                        <div class="px-5 pb-6 border-t border-slate-50 pt-4 text-sm text-slate-600">${stage.desc}</div>
+                        <div class="px-5 md:px-6 pb-6 border-t border-slate-50 pt-4 text-sm text-slate-600">${stage.desc}</div>
                     </div>
                 `;
                 container.appendChild(item);
@@ -362,7 +364,7 @@
             const container = document.getElementById('timeline-container');
             roadmapData.forEach((item, index) => {
                 const el = document.createElement('div');
-                el.className = "bg-white p-5 md:p-8 rounded-2xl border border-slate-100 shadow-sm";
+                el.className = "bg-white p-5 md:p-8 rounded-2xl border border-slate-100 shadow-sm text-left";
                 el.innerHTML = `
                     <div class="flex justify-between items-start mb-3">
                         <div>
@@ -370,8 +372,8 @@
                             <h3 class="text-lg md:text-xl font-bold text-[#0d2a30]">${item.title}</h3>
                         </div>
                     </div>
-                    <ul class="space-y-1">
-                        ${item.items.map(pt => `<li class="text-slate-500 text-xs md:text-sm flex items-center"><span class="w-1 h-1 bg-[#c5a059] rounded-full mr-2"></span>${pt}</li>`).join('')}
+                    <ul class="space-y-1.5">
+                        ${item.items.map(pt => `<li class="text-slate-500 text-xs md:text-sm flex items-start"><span class="w-1 h-1 bg-[#c5a059] rounded-full mr-2 mt-2 flex-shrink-0"></span>${pt}</li>`).join('')}
                     </ul>
                 `;
                 container.appendChild(el);
@@ -394,36 +396,36 @@
                 const trigger = document.createElement('div');
                 trigger.className = 'investment-section-trigger';
                 trigger.innerHTML = `
-                    <h4 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-3">${item.section}</h4>
-                    <p class="text-sm md:text-lg text-slate-500 leading-relaxed font-light">${item.value}</p>
+                    <h4 class="text-xl md:text-3xl font-extrabold text-[#0d2a30] mb-3 text-left">${item.section}</h4>
+                    <p class="text-sm md:text-lg text-slate-500 leading-relaxed font-light text-left">${item.value}</p>
                 `;
                 scrollContainer.appendChild(trigger);
             });
 
-            // Boundary Observers
             const spotlight = document.getElementById('value-spotlight');
             
-            // Observer for the whole content scroll container to manage visibility bounds
-            const boundObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        spotlight.classList.remove('visible');
-                    }
-                });
-            }, { threshold: 0 });
-            boundObserver.observe(scrollContainer);
-
-            // Observer for individual items to swap content
-            const itemObserver = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver((entries) => {
+                let hasIntersecting = false;
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        hasIntersecting = true;
                         const index = Array.from(scrollContainer.children).indexOf(entry.target);
                         updateSpotlight(index);
                     }
                 });
-            }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+                
+                // If nothing is in the critical zone, hide spotlight
+                if (!hasIntersecting) {
+                    const scrollY = window.scrollY;
+                    const rect = scrollContainer.getBoundingClientRect();
+                    // If scrolled past the bottom or still above the top
+                    if (rect.bottom < window.innerHeight * 0.4 || rect.top > window.innerHeight * 0.6) {
+                        spotlight.classList.remove('visible');
+                    }
+                }
+            }, { rootMargin: '-48% 0px -48% 0px', threshold: 0 });
 
-            Array.from(scrollContainer.children).forEach(trigger => itemObserver.observe(trigger));
+            Array.from(scrollContainer.children).forEach(trigger => observer.observe(trigger));
         }
 
         function updateSpotlight(idx) {
@@ -441,8 +443,6 @@
                 spotlight.classList.add('visible');
                 feeTxt.innerText = `₹${data.fee.toLocaleString()}`;
                 nameTxt.innerText = data.section;
-            } else {
-                spotlight.classList.remove('visible');
             }
         }
 

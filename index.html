@@ -3,328 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YME Travel Subsidiary | Strategic Proposal</title>
-    <link rel="icon" href="https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a">
+    <title>YME Travel Subsidiary | Strategic Business Proposal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fcfcfc;
-            color: #1e293b;
-            scroll-behavior: smooth;
+        :root {
+            --brand-primary: #D4AF37; /* Gold from logo */
+            --brand-secondary: #1A1A1B; /* Charcoal from logo */
+            --brand-accent: #F4F1EA; /* Creamy white */
         }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.98);
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(203, 213, 225, 0.4);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.1);
         }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Growth Engine Styles */
-        .engine-item { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .engine-content-wrapper {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            opacity: 0;
+        .gradient-text {
+            background: linear-gradient(135deg, #1A1A1B 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .engine-item.active .engine-content-wrapper {
-            max-height: 600px;
-            opacity: 1;
+        .hero-bg {
+            background: radial-gradient(circle at top right, #fdfcf9 0%, #ffffff 100%);
         }
-
-        /* --- INVESTMENT REDESIGN STYLES --- */
-        .investment-row {
-            transition: background-color 0.2s ease;
+        .brand-shadow {
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
         }
-        .investment-row:hover {
-            background-color: #f8fafc;
-        }
-
-        .nav-item { position: relative; }
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #c5a059;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-        .nav-item:hover::after { width: 100%; }
+        .step-active { border-left: 4px solid #D4AF37; }
+        
+        /* Custom scrollbar for brand feel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden text-slate-900">
+<body class="bg-[#FAFAFA] text-slate-900 overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 md:h-20 items-center">
-                <div class="flex items-center gap-2 md:gap-3">
-                    <div class="h-10 w-10 md:h-12 md:w-12 flex-shrink-0 bg-white rounded-full p-0.5 border border-slate-200 overflow-hidden">
-                        <img src="logo1.jpg" alt="Orgvein" class="h-full w-full object-cover rounded-full" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
-                    </div>
-                    <div class="flex flex-col text-left">
-                        <span class="font-extrabold text-base md:text-lg leading-none text-[#0d2a30]">Orgvein</span>
-                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-[#c5a059] font-bold">Strategic Proposal</span>
-                    </div>
+    <nav class="fixed top-0 w-full z-50 glass-card py-3">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://lh3.googleusercontent.com/u/0/d/1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="YME Logo" class="h-10 w-10 object-contain rounded-lg shadow-sm border border-slate-100" onerror="this.src='https://www.google.com/s2/favicons?domain=google.com&sz=128'">
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-tight uppercase leading-none text-[#1A1A1B]">YME Travel</span>
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-[#D4AF37] font-semibold">Subsidiary Architecture</span>
                 </div>
-
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#vision" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Vision</a>
-                    <a href="#strategy" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Strategy</a>
-                    <a href="#roadmap" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Roadmap</a>
-                    <a href="#investment" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Investment</a>
-                </div>
-                <div class="md:hidden text-[#c5a059] font-bold text-[10px] tracking-widest uppercase">Investment</div>
             </div>
+            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <a href="#context" class="hover:text-[#D4AF37] transition-colors">Context</a>
+                <a href="#continuum" class="hover:text-[#D4AF37] transition-colors">Continuum</a>
+                <a href="#roadmap" class="hover:text-[#D4AF37] transition-colors">Roadmap</a>
+                <a href="#investment" class="hover:text-[#D4AF37] transition-colors">Investment</a>
+            </div>
+            <button class="bg-[#1A1A1B] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#D4AF37] transition-all transform hover:scale-105">
+                Secure Access
+            </button>
         </div>
     </nav>
 
-    <!-- Hero / Vision Section -->
-    <section id="vision" class="pt-12 pb-16 md:pt-24 md:pb-24 bg-gradient-to-br from-slate-50 to-[#0d2a30]/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 md:mb-20">
-                <div class="inline-flex items-center px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-[#0d2a30] text-[#c5a059] text-[9px] md:text-xs font-black uppercase tracking-widest mb-6 md:mb-8 border border-[#c5a059]/30">
-                    Clarity. Structure. Flow.
-                </div>
-                <h1 class="text-3xl md:text-7xl font-extrabold text-[#0d2a30] tracking-tight mb-6 leading-tight">
-                    Building the <span class="text-[#c5a059]">YME Travel Legacy</span>
-                </h1>
-                <p class="text-base md:text-xl text-slate-500 leading-relaxed max-w-3xl mx-auto">
-                    Architecting a new consumer travel vertical for YME, complementing its core B2B visa leadership with end-to-end leisure travel services.
-                </p>
+    <!-- Hero Section -->
+    <section class="pt-40 pb-24 px-6 hero-bg">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 bg-white border border-[#D4AF37]/20 rounded-full mb-8 shadow-sm">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]"></span>
+                </span>
+                <p class="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-[10px]">Strategic Business Engineering</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-                <div class="glass-panel p-6 md:p-8 rounded-2xl border-l-4 border-slate-300">
-                    <h3 class="text-base font-bold text-[#0d2a30] mb-3 uppercase tracking-wide">Parent Authority: YME</h3>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Religious Visa Domain Leader</li>
-                        <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Proven Operational Heritage</li>
-                        <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Deep Market Trust</li>
-                    </ul>
-                </div>
-                <div class="glass-panel p-6 md:p-8 rounded-2xl border-l-4 border-[#c5a059]">
-                    <h3 class="text-base font-bold text-[#0d2a30] mb-3 uppercase tracking-wide">New Horizon: Subsidiary</h3>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Leisure & Holiday Packages</li>
-                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Global Destination Planning</li>
-                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Independent Identity & Systems</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Growth Engine -->
-    <section id="strategy" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-10 text-left">The 5-Stage Growth Engine</h2>
-            <div class="max-w-4xl mx-auto flex flex-col gap-4" id="engine-accordion"></div>
-        </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section id="roadmap" class="py-16 md:py-24 bg-slate-50 border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-12 text-left">Strategic Roadmap</h2>
-            <div class="relative max-w-4xl mx-auto">
-                <div class="space-y-8 md:space-y-12" id="timeline-container"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Architecture (REDESIGNED: Professional & Minimalist) -->
-    <section id="investment" class="py-20 md:py-32 bg-white border-t border-slate-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl md:text-8xl font-black text-[#1A1A1B] mb-8 leading-[1.1] tracking-tighter">
+                Engineering <br/><span class="gradient-text">The Travel Subsidiary</span>
+            </h1>
             
-            <div class="max-w-4xl mx-auto">
-                <!-- Executive Header -->
-                <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b-2 border-[#0d2a30] pb-8 gap-6">
-                    <div class="text-center md:text-left">
-                        <h2 class="text-4xl md:text-5xl font-black text-[#0d2a30] mb-2 uppercase tracking-tighter">Investment</h2>
-                        <p class="text-slate-400 font-medium uppercase tracking-widest text-[10px] md:text-xs">Phase 1: Foundation Architecture</p>
-                    </div>
-                    <div class="text-center md:text-right">
-                        <span class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Consolidated Fee</span>
-                        <span class="text-4xl md:text-5xl font-black text-[#c5a059]">₹2,15,000</span>
-                    </div>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+                A definitive operating mandate to architect, deploy, and govern a standalone travel ecosystem, engineered for systemic scale and operational independence.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-8 border-t border-slate-100 pt-10">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-2 rounded-lg shadow-sm"><i data-lucide="shield-check" class="w-5 h-5 text-[#D4AF37]"></i></div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Governance First</span>
                 </div>
-
-                <!-- Workstream List -->
-                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden mb-16" id="investment-list">
-                    <!-- JS Injected Line Items -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-2 rounded-lg shadow-sm"><i data-lucide="layers" class="w-5 h-5 text-[#D4AF37]"></i></div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Structural Integrity</span>
                 </div>
-
-                <!-- Commercial Milestones -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    
-    <!-- Kickoff (now dark theme) -->
-    <div class="p-6 bg-[#0d2a30] rounded-2xl border border-[#0d2a30] text-center shadow-lg">
-        <span class="block text-2xl font-black text-[#c5a059] mb-1">40%</span>
-        <span class="block text-[10px] font-bold text-white uppercase tracking-widest mb-2">Kickoff</span>
-        <p class="text-xs text-slate-400">Commencement of business scope and govt. registrations.</p>
-    </div>
-
-    <!-- Mid-Phase (unchanged) -->
-    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
-        <span class="block text-2xl font-black text-[#0d2a30] mb-1">30%</span>
-        <span class="block text-[10px] font-bold text-[#c5a059] uppercase tracking-widest mb-2">Mid-Phase</span>
-        <p class="text-xs text-slate-500">Approval of brand strategy, positioning and visuals.</p>
-    </div>
-
-    <!-- Final Sign-off (now light theme) -->
-    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
-        <span class="block text-2xl font-black text-[#0d2a30] mb-1">30%</span>
-        <span class="block text-[10px] font-bold text-[#c5a059] uppercase tracking-widest mb-2">Final Sign-off</span>
-        <p class="text-xs text-slate-500">Consolidation of blueprints & Phase 2 sign-off.</p>
-    </div>
-
-</div>
-
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-2 rounded-lg shadow-sm"><i data-lucide="trending-up" class="w-5 h-5 text-[#D4AF37]"></i></div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Revenue Velocity</span>
+                </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-[#0d2a30] text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="logo1.jpg" alt="Orgvein" class="h-16 w-16 mx-auto rounded-full mb-6 border-2 border-[#c5a059] object-cover shadow-2xl" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
-            <h2 class="text-2xl md:text-4xl font-bold text-[#c5a059] mb-4 tracking-tight uppercase">Ready for Takeoff</h2>
-            <p class="text-slate-400 text-base max-w-2xl mx-auto mb-12">Build the travel powerhouse of the future on a foundation of discipline, data, and world-class design.</p>
-            <div class="text-[10px] text-slate-500 uppercase tracking-[0.3em] mt-8 pt-8 border-t border-white/5">
-                © 2024 Orgvein Services | Strategic Partners
+    <!-- Executive Context -->
+    <section id="context" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
+                    <h2 class="text-4xl font-black text-[#1A1A1B] mb-8 tracking-tight">The Strategic Mandate</h2>
+                    <div class="space-y-6 text-slate-600 leading-relaxed font-medium">
+                        <p>
+                            YME has established category leadership in the religious visa segment through trust and execution reliability. The next phase is not incremental growth—it is <strong>structural expansion</strong>.
+                        </p>
+                        <p>
+                            We are not launching a travel agency; we are <strong>engineering a new business system</strong>. Orgvein acts as the business engineer, designing the complete operating system to ensure the subsidiary operates without contaminating the parent operation.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 grid grid-cols-2 gap-4">
+                        <div class="p-6 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/30 transition-all cursor-default group">
+                            <i data-lucide="zap" class="w-6 h-6 text-[#D4AF37] mb-4 transition-transform group-hover:scale-110"></i>
+                            <h4 class="font-bold mb-1 text-slate-900 text-sm">Decoupled Agility</h4>
+                            <p class="text-[11px] text-slate-400 leading-normal">Independent decision-making cycles free from parent operational constraints.</p>
+                        </div>
+                        <div class="p-6 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/30 transition-all cursor-default group">
+                            <i data-lucide="lock" class="w-6 h-6 text-[#D4AF37] mb-4 transition-transform group-hover:scale-110"></i>
+                            <h4 class="font-bold mb-1 text-slate-900 text-sm">Brand Security</h4>
+                            <p class="text-[11px] text-slate-400 leading-normal">Systemic isolation protecting the core parent equity during expansion.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-[#1A1A1B] rounded-[2.5rem] p-12 text-white relative overflow-hidden brand-shadow">
+                    <div class="absolute top-0 right-0 w-80 h-80 bg-[#D4AF37]/10 blur-[80px] rounded-full -mr-32 -mt-32"></div>
+                    <img src="https://lh3.googleusercontent.com/u/0/d/1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="YME Mark" class="w-16 h-16 opacity-20 mb-10 invert grayscale brightness-200">
+                    <h3 class="text-3xl font-bold mb-10 tracking-tight">Opportunity Structure</h3>
+                    <ul class="space-y-8">
+                        <li class="flex items-start space-x-5">
+                            <div class="bg-white/5 p-3 rounded-xl border border-white/10"><i data-lucide="tag" class="w-5 h-5 text-[#D4AF37]"></i></div>
+                            <div>
+                                <h5 class="font-bold text-white text-lg">Market Identity</h5>
+                                <p class="text-sm text-slate-400 font-medium">Establishment of a unique standalone brand and market positioning.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-5">
+                            <div class="bg-white/5 p-3 rounded-xl border border-white/10"><i data-lucide="dollar-sign" class="w-5 h-5 text-[#D4AF37]"></i></div>
+                            <div>
+                                <h5 class="font-bold text-white text-lg">Revenue Logic</h5>
+                                <p class="text-sm text-slate-400 font-medium">Bespoke pricing architectures tailored for high-frequency travel models.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-5">
+                            <div class="bg-white/5 p-3 rounded-xl border border-white/10"><i data-lucide="settings" class="w-5 h-5 text-[#D4AF37]"></i></div>
+                            <div>
+                                <h5 class="font-bold text-white text-lg">Systemic Governance</h5>
+                                <p class="text-sm text-slate-400 font-medium">Standalone controls, accountability structures, and automated team logic.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="py-24 bg-[#1A1A1B] text-white px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 tracking-tight">The Orgvein Philosophy: <span class="text-[#D4AF37]">System-First</span></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 border border-white/5 rounded-[2rem] hover:bg-white/[0.02] transition-colors relative group">
+                    <div class="text-7xl font-black mb-6 opacity-5 group-hover:opacity-10 transition-opacity absolute top-4 left-6">01</div>
+                    <h4 class="text-2xl font-bold mb-4">Design</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">We engineer the complete target-state operating system before a single step is taken in execution.</p>
+                </div>
+                <div class="p-10 border border-white/5 rounded-[2rem] hover:bg-white/[0.02] transition-colors relative group">
+                    <div class="text-7xl font-black mb-6 opacity-5 group-hover:opacity-10 transition-opacity absolute top-4 left-6">02</div>
+                    <h4 class="text-2xl font-bold mb-4">Build</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Infrastructure is configured and hardened, creating a predictable environment for growth.</p>
+                </div>
+                <div class="p-10 border border-white/5 rounded-[2rem] hover:bg-white/[0.02] transition-colors relative group">
+                    <div class="text-7xl font-black mb-6 opacity-5 group-hover:opacity-10 transition-opacity absolute top-4 left-6">03</div>
+                    <h4 class="text-2xl font-bold mb-4">Govern</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Strategic control is established through KPI frameworks before revenue acceleration begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Operating Continuum -->
+    <section id="continuum" class="py-24 px-6 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black text-[#1A1A1B] mb-4">The Operating Continuum</h2>
+                <p class="text-slate-400 font-semibold uppercase tracking-[0.2em] text-[10px]">A 7-Step Lifecycle for Engineering Scale</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                <!-- Phase 1 -->
+                <div class="lg:col-span-2 p-8 bg-white rounded-3xl border border-slate-100 brand-shadow">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-[#D4AF37] mb-6 block">Phase 1: Architect</span>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-[#1A1A1B] text-[#D4AF37] flex items-center justify-center text-xs font-bold">1</div>
+                            <span class="font-bold text-sm">Diagnose</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-[#1A1A1B] text-[#D4AF37] flex items-center justify-center text-xs font-bold">2</div>
+                            <span class="font-bold text-sm">Design</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phase 2 -->
+                <div class="lg:col-span-2 p-8 bg-white rounded-3xl border border-slate-100">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-300 mb-6 block">Phase 2: Deploy</span>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-xs font-bold">3</div>
+                            <span class="font-bold text-sm text-slate-400">Develop</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-xs font-bold">4</div>
+                            <span class="font-bold text-sm text-slate-400">Deploy</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phase 3 -->
+                <div class="lg:col-span-2 p-8 bg-white rounded-3xl border border-slate-100">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-300 mb-6 block">Phase 3: Direct</span>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-xs font-bold">5</div>
+                            <span class="font-bold text-sm text-slate-400">Direct</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-xs font-bold">6</div>
+                            <span class="font-bold text-sm text-slate-400">Drive</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 7 -->
+                <div class="lg:col-span-1 p-8 bg-white rounded-3xl border border-slate-100">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-rose-300 mb-6 block">Exception</span>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 rounded-full bg-rose-50 text-rose-300 flex items-center justify-center text-xs font-bold">7</div>
+                        <span class="font-bold text-sm text-rose-300">Reset</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1 Timeline -->
+    <section id="roadmap" class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-black text-[#1A1A1B] mb-4 tracking-tight">Phase 1: <span class="text-[#D4AF37]">Diagnose & Design</span></h2>
+                    <p class="text-slate-500 font-medium">A rigorous engineering cycle to establish legal identity, financial governance, and systemic infrastructure.</p>
+                </div>
+                <div class="bg-[#FAFAFA] px-6 py-3 rounded-2xl border border-slate-100 flex items-center space-x-4">
+                    <div class="bg-[#D4AF37] p-2 rounded-lg text-white"><i data-lucide="calendar" class="w-5 h-5"></i></div>
+                    <div>
+                        <span class="text-[10px] block uppercase tracking-widest text-slate-400 font-bold">Duration</span>
+                        <span class="text-sm font-black text-[#1A1A1B]">12 – 15 Weeks</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Weeks 1-2 -->
+                <div class="p-10 rounded-[2.5rem] bg-[#FAFAFA] border border-slate-100 relative hover:border-[#D4AF37]/20 transition-all">
+                    <div class="text-[#D4AF37] font-black text-[10px] tracking-[0.2em] uppercase mb-6">WEEKS 1–2</div>
+                    <h4 class="text-xl font-bold mb-6 text-[#1A1A1B]">Compliance & Registration</h4>
+                    <ul class="space-y-4 text-xs font-semibold text-slate-500">
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Company Incorporation filing</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>PAN/TAN & GST Registration</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Trademark Application Filing</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Bank Account Activation Pack</span></li>
+                    </ul>
+                </div>
+
+                <!-- Weeks 3-4 -->
+                <div class="p-10 rounded-[2.5rem] bg-[#FAFAFA] border border-slate-100 relative hover:border-[#D4AF37]/20 transition-all">
+                    <div class="text-[#D4AF37] font-black text-[10px] tracking-[0.2em] uppercase mb-6">WEEKS 3–4</div>
+                    <h4 class="text-xl font-bold mb-6 text-[#1A1A1B]">Brand & Market Mapping</h4>
+                    <ul class="space-y-4 text-xs font-semibold text-slate-500">
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Target Segment Definitions</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Competitive Differentiation Map</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Service Portfolio Packaging</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Identity & Narrative Framework</span></li>
+                    </ul>
+                </div>
+
+                <!-- Weeks 5-6 -->
+                <div class="p-10 rounded-[2.5rem] bg-[#FAFAFA] border border-slate-100 relative hover:border-[#D4AF37]/20 transition-all">
+                    <div class="text-[#D4AF37] font-black text-[10px] tracking-[0.2em] uppercase mb-6">WEEKS 5–6</div>
+                    <h4 class="text-xl font-bold mb-6 text-[#1A1A1B]">Governance Hierarchy</h4>
+                    <ul class="space-y-4 text-xs font-semibold text-slate-500">
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Legal Shareholding Architecture</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Decision Rights & Escalation</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Parent-Subsidiary Operating Rules</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Authority Matrix Design</span></li>
+                    </ul>
+                </div>
+
+                <!-- Weeks 7-10 -->
+                <div class="p-10 rounded-[2.5rem] bg-[#FAFAFA] border border-slate-100 relative hover:border-[#D4AF37]/20 transition-all">
+                    <div class="text-[#D4AF37] font-black text-[10px] tracking-[0.2em] uppercase mb-6">WEEKS 7–10</div>
+                    <h4 class="text-xl font-bold mb-6 text-[#1A1A1B]">Financial & ERP Design</h4>
+                    <ul class="space-y-4 text-xs font-semibold text-slate-500">
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Chart of Accounts Architecture</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Pricing & Discount Logic Governance</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>ERP Functional Requirement Design</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></i><span>Org Design & Hiring Roadmap</span></li>
+                    </ul>
+                </div>
+
+                <!-- Weeks 11-12 -->
+                <div class="p-10 rounded-[2.5rem] bg-[#1A1A1B] text-white relative brand-shadow">
+                    <img src="https://lh3.googleusercontent.com/u/0/d/1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="YME" class="w-12 h-12 opacity-10 absolute top-8 right-8 grayscale invert">
+                    <div class="text-[#D4AF37] font-black text-[10px] tracking-[0.2em] uppercase mb-6">WEEKS 11–12</div>
+                    <h4 class="text-xl font-bold mb-6 text-white">Consolidation & Review</h4>
+                    <ul class="space-y-4 text-xs font-semibold text-slate-400">
+                        <li class="flex items-center space-x-3"><i data-lucide="arrow-right-circle" class="w-4 h-4 text-[#D4AF37]"></i><span>Master Blueprint Finalization</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="arrow-right-circle" class="w-4 h-4 text-[#D4AF37]"></i><span>Leadership Strategic Alignment</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="arrow-right-circle" class="w-4 h-4 text-[#D4AF37]"></i><span>Phase 2 Activation Readiness</span></li>
+                    </ul>
+                </div>
+
+                <!-- Weeks 13-15 -->
+                <div class="p-10 rounded-[2.5rem] bg-white border border-slate-200 border-dashed relative">
+                    <div class="text-slate-400 font-black text-[10px] tracking-[0.2em] uppercase mb-6">WEEKS 13–15</div>
+                    <h4 class="text-xl font-bold mb-6 text-slate-400 italic">Contingency Window</h4>
+                    <p class="text-[11px] text-slate-400 leading-relaxed font-medium italic">
+                        Strategic buffer for regulatory follow-ups, leadership iterations, and final documentation polish.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Out of Scope -->
+    <section class="py-24 bg-[#FAFAFA] px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-[#1A1A1B] rounded-[3rem] shadow-2xl overflow-hidden border border-white/5">
+                <div class="p-12 text-white border-b border-white/5">
+                    <h2 class="text-3xl font-black mb-2">Explicit Exclusions</h2>
+                    <p class="text-slate-500 font-bold uppercase tracking-widest text-[9px]">Scope Boundary Protection — Phase 1</p>
+                </div>
+                <div class="p-12 grid md:grid-cols-2 gap-12 bg-white/[0.01]">
+                    <div>
+                        <h5 class="font-bold text-[#D4AF37] mb-6 flex items-center text-xs uppercase tracking-[0.2em]">Operational Execution</h5>
+                        <ul class="text-[11px] text-slate-400 space-y-4 font-bold">
+                            <li class="flex items-center space-x-2"><i data-lucide="minus" class="w-3 h-3 text-rose-500"></i><span>Day-to-day transaction handling</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="minus" class="w-3 h-3 text-rose-500"></i><span>Vendor negotiation or management</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-[#D4AF37] mb-6 flex items-center text-xs uppercase tracking-[0.2em]">Technology Deployment</h5>
+                        <ul class="text-[11px] text-slate-400 space-y-4 font-bold">
+                            <li class="flex items-center space-x-2"><i data-lucide="minus" class="w-3 h-3 text-rose-500"></i><span>ERP configuration or website coding</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="minus" class="w-3 h-3 text-rose-500"></i><span>Third-party software procurement</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Structure -->
+    <section id="investment" class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-black text-[#1A1A1B] mb-4 tracking-tight">Investment Architecture</h2>
+                <p class="text-[#D4AF37] font-black uppercase tracking-[0.2em] text-[10px]">Strategic Engineering — Phase 1</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
+                <!-- Fee Breakdown -->
+                <div class="lg:col-span-7 space-y-4">
+                    <h4 class="text-lg font-black mb-8 text-[#1A1A1B] uppercase tracking-widest">Workstream Allocation</h4>
+                    <div class="grid gap-3">
+                        <div class="flex justify-between items-center p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/20 transition-all">
+                            <span class="text-sm font-bold text-slate-600">Business & Market Strategy</span>
+                            <span class="font-black text-[#1A1A1B]">₹25,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/20 transition-all">
+                            <span class="text-sm font-bold text-slate-600">Brand Strategy & Identity</span>
+                            <span class="font-black text-[#1A1A1B]">₹45,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/20 transition-all">
+                            <span class="text-sm font-bold text-slate-600">Legal & Governance Architecture</span>
+                            <span class="font-black text-[#1A1A1B]">₹40,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/20 transition-all">
+                            <span class="text-sm font-bold text-slate-600">Financial & Pricing Architecture</span>
+                            <span class="font-black text-[#1A1A1B]">₹25,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/20 transition-all">
+                            <span class="text-sm font-bold text-slate-600">Org Design & HR Architecture</span>
+                            <span class="font-black text-[#1A1A1B]">₹30,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:border-[#D4AF37]/20 transition-all">
+                            <span class="text-sm font-bold text-slate-600">Systems & Process Architecture</span>
+                            <span class="font-black text-[#1A1A1B]">₹45,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-8 bg-[#1A1A1B] text-white rounded-[2rem] shadow-2xl mt-8 border border-[#D4AF37]/20">
+                            <div class="flex flex-col">
+                                <span class="font-black text-xs uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Total Fee</span>
+                                <span class="font-black text-3xl tracking-tighter italic">Phase 1</span>
+                            </div>
+                            <span class="font-black text-4xl text-[#D4AF37] tracking-tighter">₹2,15,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Milestones -->
+                <div class="lg:col-span-5 bg-[#FAFAFA] p-10 rounded-[2.5rem] border border-slate-100">
+                    <h4 class="text-lg font-black mb-10 text-[#1A1A1B] uppercase tracking-widest">Payment Milestones</h4>
+                    <div class="relative space-y-12 pl-8 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-px before:bg-[#D4AF37]/20">
+                        <div class="relative">
+                            <div class="absolute -left-[2.4rem] w-8 h-8 rounded-full bg-[#1A1A1B] border-[6px] border-[#FAFAFA] shadow-sm flex items-center justify-center text-[10px] font-bold text-[#D4AF37]">30%</div>
+                            <h5 class="font-black text-[#1A1A1B] text-sm uppercase">Kickoff & Activation</h5>
+                            <p class="text-[11px] text-slate-400 font-bold mt-1">Strategic alignment & registration initiation.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[2.4rem] w-8 h-8 rounded-full bg-white border-[6px] border-[#FAFAFA] shadow-sm flex items-center justify-center text-[10px] font-bold text-slate-300">20%</div>
+                            <h5 class="font-black text-[#1A1A1B] text-sm uppercase">Diagnosis Validation</h5>
+                            <p class="text-[11px] text-slate-400 font-bold mt-1">Market, risk & competitive mapping.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[2.4rem] w-8 h-8 rounded-full bg-white border-[6px] border-[#FAFAFA] shadow-sm flex items-center justify-center text-[10px] font-bold text-slate-300">20%</div>
+                            <h5 class="font-black text-[#1A1A1B] text-sm uppercase">Blueprint Approval</h5>
+                            <p class="text-[11px] text-slate-400 font-bold mt-1">Sign-off on all system architectures.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[2.4rem] w-8 h-8 rounded-full bg-white border-[6px] border-[#FAFAFA] shadow-sm flex items-center justify-center text-[10px] font-bold text-slate-300">20%</div>
+                            <h5 class="font-black text-[#1A1A1B] text-sm uppercase">Phase 1 Handover</h5>
+                            <p class="text-[11px] text-slate-400 font-bold mt-1">Final closure & Phase 2 transition.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Closing -->
+    <footer class="py-32 bg-[#1A1A1B] text-white px-6 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-[40rem] h-[40rem] bg-[#D4AF37]/5 blur-[120px] rounded-full translate-x-1/2 translate-y-1/2"></div>
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+            <img src="https://lh3.googleusercontent.com/u/0/d/1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="YME" class="h-20 w-20 mb-12 grayscale invert brightness-200 opacity-80">
+            <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Systems, Not Improvisation.</h2>
+            <p class="text-slate-500 max-w-2xl mb-16 text-lg font-medium">
+                YME’s next phase of growth demands systemic resilience. This is not a project; it is a business operating mandate for category dominance.
+            </p>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                <button class="bg-[#D4AF37] hover:bg-[#B8962E] text-[#1A1A1B] px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-[#D4AF37]/10">
+                    Authorize Mandate
+                </button>
+                <button class="bg-white/5 border border-white/10 hover:bg-white/10 text-white px-12 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all">
+                    Request Review
+                </button>
+            </div>
+            
+            <div class="mt-40 pt-12 border-t border-white/5 w-full flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-600">
+                <p>&copy; 2024 Orgvein Services | Business Engineering Architecture</p>
+                <p class="mt-4 md:mt-0">Strictly Confidential — Strategic Asset</p>
             </div>
         </div>
     </footer>
 
     <script>
-        const engineData = [
-            { id: 1, title: "Diagnose", icon: "🔍", desc: "Intelligence Scan: Identifying competitor gaps and market opportunities where YME's existing trust gives us leverage." },
-            { id: 2, title: "Design", icon: "📐", desc: "Architecture: Building the legal, financial, and brand blueprint to eliminate ambiguity before launch." },
-            { id: 3, title: "Deploy", icon: "🚀", desc: "Forging: Launching brand identity, configuring CRM/ERP infrastructure, and hiring the core team." },
-            { id: 4, title: "Develop", icon: "⚙️", desc: "Calibration: Stabilizing operations, refining SOPs, and coaching sales/ops teams." },
-            { id: 5, title: "Drive Growth", icon: "📈", desc: "Acceleration: Scaling lead generation and expanding into new leisure destinations." }
-        ];
+        lucide.createIcons();
 
-        const roadmapData = [
-            { week: "Week 1", title: "Identity", items: ["Name Finalization", "Statutory Process", "Boundary Definition"] },
-            { week: "Week 2", title: "Strategy", items: ["Target Segmentation", "Portfolio Design", "Framework"] },
-            { week: "Week 3", title: "Branding", items: ["Visual Identity", "Voice Guidelines", "Model Confirmation"] },
-            { week: "Weeks 4–6", title: "Operations", items: ["Financial Charts", "CRM/ERP Selection", "HR Roadmap"] },
-            { week: "Week 7", title: "Sign-off", items: ["Output Consolidation", "Leadership Review", "Phase 2 Blueprint"] }
-        ];
-
-        const investmentData = [
-            { section: "Brand Strategy & Visual Direction", fee: 45000, value: "Design-ready visual language that converts travelers." },
-            { section: "Systems & ERP Architecture", fee: 45000, value: "Automated tech hub designed for high-volume scale." },
-            { section: "Financial & Unit Economics", fee: 40000, value: "Profit-focused architecture & inter-company boundaries." },
-            { section: "Legal & Corporate Structure", fee: 30000, value: "Entity registration and parent-entity firewall." },
-            { section: "Org Design & HR Architecture", fee: 30000, value: "Talent roadmap, hiring plan and performance logic." },
-            { section: "Business & Market Strategy", fee: 25000, value: "Absolute clarity on target segments and positioning." }
-        ];
-
-        function renderEngine() {
-            const container = document.getElementById('engine-accordion');
-            engineData.forEach((stage, index) => {
-                const item = document.createElement('div');
-                item.className = `engine-item border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm ${index === 0 ? 'active border-[#c5a059]' : ''}`;
-                item.innerHTML = `
-                    <button class="w-full flex items-center justify-between p-6 md:p-8 text-left transition-colors" onclick="toggleEngine(${index})">
-                        <div class="flex items-center gap-4">
-                            <span class="text-2xl">${stage.icon}</span>
-                            <div>
-                                <span class="block text-[8px] uppercase tracking-widest text-[#c5a059] font-bold">Stage 0${index + 1}</span>
-                                <span class="text-lg md:text-xl font-extrabold text-[#0d2a30]">${stage.title}</span>
-                            </div>
-                        </div>
-                        <div class="engine-toggle-icon transition-transform duration-300 ${index === 0 ? 'rotate-180' : ''}">
-                            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </div>
-                    </button>
-                    <div class="engine-content-wrapper">
-                        <div class="px-6 md:px-8 pb-6 border-t border-slate-50 pt-4 text-sm md:text-base text-slate-600 leading-relaxed">${stage.desc}</div>
-                    </div>
-                `;
-                container.appendChild(item);
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-        }
+        });
 
-        function toggleEngine(idx) {
-            const items = document.querySelectorAll('.engine-item');
-            items.forEach((item, i) => {
-                const icon = item.querySelector('.engine-toggle-icon');
-                if (i === idx) {
-                    const isActive = item.classList.contains('active');
-                    item.classList.toggle('active', !isActive);
-                    item.classList.toggle('border-[#c5a059]', !isActive);
-                    icon.classList.toggle('rotate-180', !isActive);
-                } else {
-                    item.classList.remove('active', 'border-[#c5a059]');
-                    icon.classList.remove('rotate-180');
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
                 }
             });
-        }
+        }, { threshold: 0.1 });
 
-        function renderRoadmap() {
-            const container = document.getElementById('timeline-container');
-            roadmapData.forEach((item, index) => {
-                const el = document.createElement('div');
-                el.className = "bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm text-left relative overflow-hidden";
-                el.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
-                        <div>
-                            <span class="text-[9px] font-black text-[#c5a059] uppercase block mb-1">${item.week}</span>
-                            <h3 class="text-lg md:text-xl font-bold text-[#0d2a30]">${item.title}</h3>
-                        </div>
-                        <div class="text-4xl opacity-5 font-black">0${index + 1}</div>
-                    </div>
-                    <ul class="space-y-2">
-                        ${item.items.map(pt => `<li class="text-slate-500 text-xs md:text-sm flex items-start"><span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full mr-3 mt-1.5 shrink-0"></span>${pt}</li>`).join('')}
-                    </ul>
-                `;
-                container.appendChild(el);
-            });
-        }
-
-        function renderInvestmentList() {
-            const list = document.getElementById('investment-list');
-            investmentData.forEach((item, index) => {
-                const row = document.createElement('div');
-                row.className = `investment-row p-6 md:p-8 flex flex-col md:flex-row items-center gap-4 md:gap-8 ${index !== investmentData.length - 1 ? 'border-b border-slate-50' : ''}`;
-                row.innerHTML = `
-                    <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 text-slate-300 font-black text-xs border border-slate-100">
-                        ${index + 1}
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h4 class="text-base md:text-lg font-bold text-[#0d2a30] leading-tight mb-1">${item.section}</h4>
-                        <p class="text-xs md:text-sm text-slate-400 font-medium">${item.value}</p>
-                    </div>
-                    <div class="shrink-0 text-center md:text-right">
-                        <span class="block text-[8px] font-black text-slate-300 uppercase tracking-widest mb-1">Consulting Fee</span>
-                        <span class="text-lg font-black text-[#c5a059]">₹${item.fee.toLocaleString()}</span>
-                    </div>
-                `;
-                list.appendChild(row);
-            });
-        }
-
-        window.onload = () => {
-            renderEngine();
-            renderRoadmap();
-            renderInvestmentList();
-        };
+        document.querySelectorAll('section > div').forEach(div => {
+            div.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(div);
+        });
     </script>
 </body>
 </html>

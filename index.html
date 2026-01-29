@@ -27,7 +27,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Growth Engine Pop-out Styles */
+        /* Growth Engine Styles */
         .engine-item { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .engine-content-wrapper {
             max-height: 0;
@@ -40,8 +40,7 @@
             opacity: 1;
         }
 
-        /* --- REDESIGNED INVESTMENT ARCHITECTURE --- */
-        
+        /* --- INVESTMENT ARCHITECTURE --- */
         .investment-v-bar {
             width: 6px;
             background: #f1f5f9;
@@ -55,7 +54,6 @@
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             opacity: 0.2;
-            cursor: pointer;
         }
 
         .v-segment.active {
@@ -64,11 +62,10 @@
             z-index: 10;
         }
 
-        /* The Sticky Visuals Column */
         .sticky-visual-column {
             position: sticky;
             top: 25%;
-            height: 40vh; /* Reduced height for tighter alignment */
+            height: 40vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -76,13 +73,13 @@
         }
 
         .investment-section-trigger {
-            min-height: 15vh; /* Significantly reduced from 40vh */
+            min-height: 15vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             opacity: 0.15;
             transition: all 0.6s ease;
-            padding: 1rem 0; /* Tightened padding */
+            padding: 1.5rem 0;
         }
 
         .investment-section-trigger.active {
@@ -90,12 +87,12 @@
             transform: translateX(15px);
         }
 
-        /* Rupee Value Card */
+        /* Value Spotlight - Initial Hidden State */
         #value-spotlight {
             position: fixed;
             bottom: 1.5rem;
             left: 50%;
-            transform: translateX(-50%) translateY(100px);
+            transform: translateX(-50%) translateY(120%);
             width: 90%;
             max-width: 380px;
             background: #0d2a30;
@@ -166,7 +163,7 @@
             <div class="flex justify-between h-16 md:h-20 items-center">
                 <div class="flex items-center gap-2 md:gap-3">
                     <div class="h-10 w-10 md:h-12 md:w-12 flex-shrink-0 bg-white rounded-full p-0.5 border border-slate-200 overflow-hidden">
-                        <img src="logo1.jpg" alt="Orgvein" class="h-full w-full object-cover rounded-full">
+                        <img src="logo1.jpg" alt="Orgvein" class="h-full w-full object-cover rounded-full" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
                     </div>
                     <div class="flex flex-col">
                         <span class="font-extrabold text-base md:text-lg leading-none text-[#0d2a30]">Orgvein</span>
@@ -180,14 +177,12 @@
                     <a href="#roadmap" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Roadmap</a>
                     <a href="#investment" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Investment</a>
                 </div>
-                <div class="md:hidden">
-                    <a href="#investment" class="bg-[#0d2a30] text-[#c5a059] px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider">Proposal</a>
-                </div>
+                <div class="md:hidden text-[#c5a059] font-bold text-[10px]">PROPOSAL</div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Content Sections -->
     <section id="vision" class="pt-12 pb-16 md:pt-24 md:pb-24 bg-gradient-to-br from-slate-50 to-[#0d2a30]/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-20">
@@ -203,17 +198,17 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-                <div class="glass-panel p-6 md:p-8 rounded-2xl md:rounded-3xl border-l-4 border-slate-300">
-                    <h3 class="text-base md:text-lg font-bold text-[#0d2a30] mb-3 md:mb-4 uppercase tracking-wide">Parent Authority: YME</h3>
-                    <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-slate-600">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl border-l-4 border-slate-300">
+                    <h3 class="text-base font-bold text-[#0d2a30] mb-3 uppercase tracking-wide">Parent Authority: YME</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
                         <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Religious Visa Domain Leader</li>
                         <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Proven Operational Heritage</li>
                         <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Deep Market Trust</li>
                     </ul>
                 </div>
-                <div class="glass-panel p-6 md:p-8 rounded-2xl md:rounded-3xl border-l-4 border-[#c5a059]">
-                    <h3 class="text-base md:text-lg font-bold text-[#0d2a30] mb-3 md:mb-4 uppercase tracking-wide">New Horizon: Subsidiary</h3>
-                    <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-slate-600">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl border-l-4 border-[#c5a059]">
+                    <h3 class="text-base font-bold text-[#0d2a30] mb-3 uppercase tracking-wide">New Horizon: Subsidiary</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
                         <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Leisure & Holiday Packages</li>
                         <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Global Destination Planning</li>
                         <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Independent Identity & Systems</li>
@@ -223,13 +218,10 @@
         </div>
     </section>
 
-    <!-- Growth Engine -->
+    <!-- Engine -->
     <section id="strategy" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-10 md:mb-16">
-                <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30]">The 5-Stage Growth Engine</h2>
-                <div class="h-1 w-12 md:w-20 bg-[#c5a059] mt-3 md:mt-4"></div>
-            </div>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-10">The 5-Stage Growth Engine</h2>
             <div class="max-w-4xl mx-auto flex flex-col gap-4" id="engine-accordion"></div>
         </div>
     </section>
@@ -237,10 +229,7 @@
     <!-- Roadmap -->
     <section id="roadmap" class="py-16 md:py-24 bg-slate-50 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center md:text-left mb-12 md:mb-20">
-                <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30]">Strategic Roadmap</h2>
-                <p class="mt-2 text-sm md:text-lg text-slate-500">Phase 1: Foundation Setup | <span class="text-[#c5a059] font-bold">7–9 Weeks</span></p>
-            </div>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-12">Strategic Roadmap</h2>
             <div class="relative max-w-4xl mx-auto">
                 <div class="space-y-8 md:space-y-12" id="timeline-container"></div>
             </div>
@@ -250,7 +239,7 @@
     <!-- Investment Architecture -->
     <section id="investment" class="py-12 md:py-20 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 md:mb-20">
+            <div class="text-center mb-16 md:mb-40">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Commercial Architecture</h2>
                 <p class="text-slate-500 text-base md:text-lg">Total Engagement: <span class="text-[#0d2a30] font-black">₹2,15,000</span></p>
             </div>
@@ -260,11 +249,11 @@
                 <div class="sticky-visual-column">
                     <div class="investment-v-bar" id="vertical-bar"></div>
 
-                    <!-- VALUE PANEL -->
+                    <!-- VALUE PANEL - Controlled by updateSpotlight -->
                     <div id="value-spotlight">
                         <div class="flex-grow">
                             <span id="spotlight-name" class="block text-[9px] uppercase font-black text-[#c5a059] tracking-widest mb-1">Workstream</span>
-                            <span id="spotlight-fee" class="text-2xl font-black text-white">₹00,000</span>
+                            <span id="spotlight-fee" class="text-2xl md:text-3xl font-black text-white">₹00,000</span>
                         </div>
                         <div class="h-10 w-10 bg-white/10 rounded-full flex items-center justify-center">
                             <svg class="w-5 h-5 text-[#c5a059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
@@ -276,18 +265,16 @@
                 <div id="investment-content-scroll" class="md:pl-12"></div>
             </div>
 
-            <!-- Footer Grid -->
             <div class="mt-20 bg-slate-50 rounded-[2.5rem] p-8 md:p-12 border border-slate-100">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center text-center md:text-left">
                     <div>
-                        <h4 class="text-[#c5a059] text-xs font-black uppercase tracking-widest mb-3">Commitment</h4>
-                        <p class="text-2xl md:text-3xl font-extrabold text-[#0d2a30] leading-tight mb-4">Scalable from Day One.</p>
-                        <p class="text-slate-500 text-sm md:text-base">We design the architecture for the subsidiary before a single rupee is spent on customer acquisition.</p>
+                        <p class="text-2xl md:text-3xl font-extrabold text-[#0d2a30] mb-4">Scalable from Day One.</p>
+                        <p class="text-slate-500 text-sm">We design the architecture for the subsidiary before a single rupee is spent on customer acquisition.</p>
                     </div>
                     <div class="grid grid-cols-1 gap-3">
-                        <div class="bg-white p-4 rounded-xl card-shadow flex justify-between items-center"><span class="text-slate-400 font-bold uppercase text-[9px]">Kickoff</span><span class="text-xl font-black text-[#0d2a30]">40%</span></div>
-                        <div class="bg-white p-4 rounded-xl card-shadow flex justify-between items-center"><span class="text-slate-400 font-bold uppercase text-[9px]">Strategy Sign-off</span><span class="text-xl font-black text-[#0d2a30]">30%</span></div>
-                        <div class="bg-white p-4 rounded-xl card-shadow border border-[#c5a059]/30 flex justify-between items-center"><span class="text-[#c5a059] font-bold uppercase text-[9px]">Phase 1 Handover</span><span class="text-xl font-black text-[#c5a059]">30%</span></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center"><span class="text-slate-400 font-bold text-[9px]">KICKOFF</span><span class="text-xl font-black text-[#0d2a30]">40%</span></div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm flex justify-between items-center"><span class="text-slate-400 font-bold text-[9px]">STRATEGY</span><span class="text-xl font-black text-[#0d2a30]">30%</span></div>
+                        <div class="bg-white p-4 rounded-xl border border-[#c5a059]/30 flex justify-between items-center"><span class="text-[#c5a059] font-bold text-[9px]">HANDOVER</span><span class="text-xl font-black text-[#c5a059]">30%</span></div>
                     </div>
                 </div>
             </div>
@@ -297,10 +284,9 @@
     <!-- Footer -->
     <footer class="bg-[#0d2a30] text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="logo1.jpg" alt="Orgvein" class="h-14 w-14 mx-auto rounded-full mb-4 border-2 border-[#c5a059] object-cover">
+            <img src="logo1.jpg" alt="Orgvein" class="h-14 w-14 mx-auto rounded-full mb-4 border-2 border-[#c5a059] object-cover" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
             <h2 class="text-2xl font-bold text-[#c5a059] mb-2">Ready for Takeoff</h2>
-            <p class="text-slate-400 text-sm max-w-lg mx-auto mb-8">Build the future of YME Travel on a foundation of discipline and design.</p>
-            <div class="text-[9px] text-slate-500 uppercase tracking-widest">Prepared by Orgvein Services | © 2024</div>
+            <div class="text-[9px] text-slate-500 uppercase tracking-widest mt-8">Prepared by Orgvein Services | © 2024</div>
         </div>
     </footer>
 
@@ -336,7 +322,7 @@
                 const item = document.createElement('div');
                 item.className = `engine-item border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm ${index === 0 ? 'active border-[#c5a059]' : ''}`;
                 item.innerHTML = `
-                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left transition-colors" onclick="toggleEngine(${index})">
+                    <button class="w-full flex items-center justify-between p-5 text-left" onclick="toggleEngine(${index})">
                         <div class="flex items-center gap-4">
                             <span class="text-xl">${stage.icon}</span>
                             <div>
@@ -345,11 +331,11 @@
                             </div>
                         </div>
                         <div class="engine-toggle-icon transition-transform duration-300 ${index === 0 ? 'rotate-180' : ''}">
-                            <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </div>
                     </button>
                     <div class="engine-content-wrapper">
-                        <div class="px-5 md:px-6 pb-6 border-t border-slate-50 pt-4 text-sm md:text-base text-slate-600 leading-relaxed">${stage.desc}</div>
+                        <div class="px-5 pb-6 border-t border-slate-50 pt-4 text-sm text-slate-600">${stage.desc}</div>
                     </div>
                 `;
                 container.appendChild(item);
@@ -376,17 +362,16 @@
             const container = document.getElementById('timeline-container');
             roadmapData.forEach((item, index) => {
                 const el = document.createElement('div');
-                el.className = "bg-white p-5 md:p-8 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden group hover:border-[#c5a059] transition-colors";
+                el.className = "bg-white p-5 md:p-8 rounded-2xl border border-slate-100 shadow-sm";
                 el.innerHTML = `
                     <div class="flex justify-between items-start mb-3">
                         <div>
-                            <span class="text-[9px] font-black text-[#c5a059] uppercase tracking-widest block mb-1">${item.week}</span>
+                            <span class="text-[9px] font-black text-[#c5a059] uppercase block mb-1">${item.week}</span>
                             <h3 class="text-lg md:text-xl font-bold text-[#0d2a30]">${item.title}</h3>
                         </div>
-                        <div class="text-2xl opacity-10 font-black">0${index + 1}</div>
                     </div>
-                    <ul class="space-y-1.5">
-                        ${item.items.map(pt => `<li class="text-slate-500 flex items-start text-xs md:text-sm"><span class="w-1 h-1 bg-[#c5a059] rounded-full mr-2 mt-2 shrink-0"></span>${pt}</li>`).join('')}
+                    <ul class="space-y-1">
+                        ${item.items.map(pt => `<li class="text-slate-500 text-xs md:text-sm flex items-center"><span class="w-1 h-1 bg-[#c5a059] rounded-full mr-2"></span>${pt}</li>`).join('')}
                     </ul>
                 `;
                 container.appendChild(el);
@@ -409,22 +394,36 @@
                 const trigger = document.createElement('div');
                 trigger.className = 'investment-section-trigger';
                 trigger.innerHTML = `
-                    <h4 class="text-xl md:text-3xl font-extrabold text-[#0d2a30] mb-2">${item.section}</h4>
-                    <p class="text-sm md:text-base text-slate-500 leading-relaxed font-light">${item.value}</p>
+                    <h4 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-3">${item.section}</h4>
+                    <p class="text-sm md:text-lg text-slate-500 leading-relaxed font-light">${item.value}</p>
                 `;
                 scrollContainer.appendChild(trigger);
             });
 
-            const observer = new IntersectionObserver((entries) => {
+            // Boundary Observers
+            const spotlight = document.getElementById('value-spotlight');
+            
+            // Observer for the whole content scroll container to manage visibility bounds
+            const boundObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        spotlight.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0 });
+            boundObserver.observe(scrollContainer);
+
+            // Observer for individual items to swap content
+            const itemObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const index = Array.from(scrollContainer.children).indexOf(entry.target);
                         updateSpotlight(index);
                     }
                 });
-            }, { rootMargin: '-40% 0px -40% 0px', threshold: 0.1 });
+            }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
-            Array.from(scrollContainer.children).forEach(trigger => observer.observe(trigger));
+            Array.from(scrollContainer.children).forEach(trigger => itemObserver.observe(trigger));
         }
 
         function updateSpotlight(idx) {

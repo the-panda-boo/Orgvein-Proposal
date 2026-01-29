@@ -72,39 +72,43 @@
         }
         .nav-item:hover::after { width: 100%; }
 
-        /* --- Vertical Investment Architecture Styles --- */
+        /* --- Refined Vertical Investment Architecture --- */
         
         .investment-v-bar {
-            width: 12px;
+            width: 8px; /* Slimmer for mobile */
             background: #f1f5f9;
             border-radius: 99px;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .investment-v-bar { width: 12px; }
         }
 
         .v-segment {
             width: 100%;
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
-            opacity: 0.4;
-            transform: scaleX(0.8);
+            opacity: 0.3;
+            transform: scaleX(0.7);
         }
 
         .v-segment.active {
             opacity: 1;
-            transform: scaleX(2);
+            transform: scaleX(2.5);
             z-index: 10;
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
         }
 
         .investment-section-trigger {
-            min-height: 30vh;
+            min-height: 25vh; /* Reduced to prevent excessive mobile gaps */
             display: flex;
             align-items: center;
-            opacity: 0.3;
+            opacity: 0.2;
             transition: all 0.5s ease;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
 
         .investment-section-trigger.active {
@@ -118,22 +122,31 @@
             height: 50vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            padding-left: 1rem;
         }
 
         .legend-pop {
             position: absolute;
-            left: 40px;
-            background: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            border: 1px solid #f1f5f9;
+            left: 24px;
+            background: #0d2a30;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
             opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.4s ease;
+            transform: translateX(-15px);
+            transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
             pointer-events: none;
             width: max-content;
+            z-index: 50;
+        }
+
+        @media (min-width: 768px) {
+            .legend-pop {
+                left: 40px;
+                padding: 0.75rem 1.25rem;
+            }
         }
 
         .v-segment.active .legend-pop {
@@ -141,34 +154,18 @@
             transform: translateX(0);
         }
 
-        @media (max-width: 768px) {
-            .sticky-visual-container {
-                position: relative;
-                top: 0;
-                height: 60px;
-                width: 100%;
-                margin-bottom: 2rem;
-            }
-            .investment-v-bar {
-                width: 100%;
-                height: 12px;
+        /* Mobile Layout Fix */
+        @media (max-width: 767px) {
+            .investment-grid {
                 display: flex;
+                gap: 1.5rem;
             }
-            .v-segment {
-                height: 100% !important;
-                transform: scaleY(0.8);
+            .sticky-visual-container {
+                width: 40px;
+                flex-shrink: 0;
             }
-            .v-segment.active {
-                transform: scaleY(2);
-                transform-origin: center;
-            }
-            .legend-pop {
-                left: 50%;
-                top: 40px;
-                transform: translateX(-50%) translateY(-10px);
-            }
-            .v-segment.active .legend-pop {
-                transform: translateX(-50%) translateY(0);
+            #investment-content-scroll {
+                flex-grow: 1;
             }
         }
     </style>
@@ -267,49 +264,48 @@
         </div>
     </section>
 
-    <!-- Section 4: Redesigned Investment Architecture (Scroll-Activated Vertical) -->
+    <!-- Section 4: Investment Architecture (Scroll-Activated Vertical) -->
     <section id="investment" class="py-16 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 md:mb-32">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Investment Architecture</h2>
-                <p class="text-slate-500 text-lg">Phase 1 Strategic Engagement: <span class="text-[#0d2a30] font-black">₹2,15,000</span></p>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Architecture</h2>
+                <p class="text-slate-500 text-base md:text-lg">Phase 1 Strategic Engagement: <span class="text-[#0d2a30] font-black">₹2,15,000</span></p>
             </div>
 
-            <!-- Scroll-Linked Container -->
-            <div class="flex flex-col md:flex-row gap-12 relative">
+            <div class="investment-grid max-w-5xl mx-auto">
                 
-                <!-- Left: Sticky Vertical Distribution Bar -->
-                <div class="md:w-1/4 sticky-visual-container">
+                <!-- Left: Sticky Vertical Bar -->
+                <div class="sticky-visual-container">
                     <div class="investment-v-bar" id="vertical-bar">
                         <!-- JS Injected Segments -->
                     </div>
                 </div>
 
                 <!-- Right: Scrolling Content -->
-                <div class="md:w-3/4 pb-[20vh]" id="investment-content-scroll">
+                <div id="investment-content-scroll" class="pb-[10vh]">
                     <!-- JS Injected Triggers -->
                 </div>
             </div>
 
-            <!-- Commercial Milestones (Final Section Footer) -->
+            <!-- Commercial Footer -->
             <div class="mt-24 max-w-5xl mx-auto">
-                <div class="bg-[#0d2a30] p-8 md:p-12 rounded-[3rem] text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="md:w-1/3">
-                        <h4 class="text-[#c5a059] text-xs font-black uppercase tracking-widest mb-4">Commercials</h4>
-                        <p class="text-2xl font-bold">Performance-Based Milestones</p>
+                <div class="bg-[#0d2a30] p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div class="text-center md:text-left">
+                        <h4 class="text-[#c5a059] text-[10px] font-black uppercase tracking-widest mb-3">Commercials</h4>
+                        <p class="text-xl md:text-2xl font-bold">Payment Milestones</p>
                     </div>
-                    <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                    <div class="w-full md:w-2/3 grid grid-cols-3 gap-2 md:gap-8 text-center">
                         <div>
-                            <div class="text-3xl font-black text-[#c5a059]">40%</div>
-                            <div class="text-[10px] text-slate-400 uppercase font-bold mt-2">Kickoff Engagement</div>
+                            <div class="text-xl md:text-3xl font-black text-[#c5a059]">40%</div>
+                            <div class="text-[8px] md:text-[10px] text-slate-400 uppercase font-bold mt-1">Kickoff</div>
                         </div>
                         <div>
-                            <div class="text-3xl font-black text-[#c5a059]">30%</div>
-                            <div class="text-[10px] text-slate-400 uppercase font-bold mt-2">Design Sign-off</div>
+                            <div class="text-xl md:text-3xl font-black text-[#c5a059]">30%</div>
+                            <div class="text-[8px] md:text-[10px] text-slate-400 uppercase font-bold mt-1">Design</div>
                         </div>
                         <div>
-                            <div class="text-3xl font-black text-white">30%</div>
-                            <div class="text-[10px] text-slate-400 uppercase font-bold mt-2">Phase 1 Sign-off</div>
+                            <div class="text-xl md:text-3xl font-black text-white">30%</div>
+                            <div class="text-[8px] md:text-[10px] text-slate-400 uppercase font-bold mt-1">Sign-off</div>
                         </div>
                     </div>
                 </div>
@@ -441,45 +437,43 @@
                 segment.style.height = `${percentage}%`;
                 segment.style.backgroundColor = item.color;
                 
-                // Legend Popup (hidden until active)
                 segment.innerHTML = `
                     <div class="legend-pop">
-                        <div class="text-[10px] font-black text-[#c5a059] uppercase mb-1">Fee Value</div>
-                        <div class="text-xl font-black text-[#0d2a30]">₹${item.fee.toLocaleString()}</div>
+                        <div class="text-[9px] font-black text-[#c5a059] uppercase tracking-tighter mb-0.5">Rupee Value</div>
+                        <div class="text-sm md:text-lg font-black">₹${item.fee.toLocaleString()}</div>
                     </div>
                 `;
                 bar.appendChild(segment);
 
                 // Content Trigger
                 const trigger = document.createElement('div');
-                trigger.className = 'investment-section-trigger px-4 md:px-12';
-                trigger.id = `trigger-${idx}`;
+                trigger.className = 'investment-section-trigger';
                 trigger.innerHTML = `
-                    <div class="max-w-xl">
-                        <h4 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-4">${item.section}</h4>
-                        <p class="text-lg md:text-xl text-slate-500 leading-relaxed font-light">${item.value}</p>
+                    <div class="w-full">
+                        <h4 class="text-xl md:text-3xl font-extrabold text-[#0d2a30] mb-2 md:mb-4">${item.section}</h4>
+                        <p class="text-sm md:text-lg text-slate-500 leading-relaxed">${item.value}</p>
                     </div>
                 `;
                 scrollContainer.appendChild(trigger);
             });
 
-            // Scroll Logic
-            window.addEventListener('scroll', () => {
-                const triggers = document.querySelectorAll('.investment-section-trigger');
-                let activeIdx = -1;
-                
-                triggers.forEach((trigger, i) => {
-                    const rect = trigger.getBoundingClientRect();
-                    // Activate if the top of the element is within the middle 40% of the screen
-                    if (rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4) {
-                        activeIdx = i;
+            // Improved Scroll Logic for Intersection
+            const options = {
+                root: null,
+                rootMargin: '-30% 0px -30% 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(scrollContainer.children).indexOf(entry.target);
+                        updateActiveVisual(index);
                     }
                 });
+            }, options);
 
-                if (activeIdx !== -1) {
-                    updateActiveVisual(activeIdx);
-                }
-            });
+            Array.from(scrollContainer.children).forEach(trigger => observer.observe(trigger));
         }
 
         function updateActiveVisual(idx) {

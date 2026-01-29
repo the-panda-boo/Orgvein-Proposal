@@ -3,18 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YME Travel Subsidiary | Strategic Proposal Infographic</title>
+    <title>YME Travel Subsidiary | Strategic Proposal</title>
     <link rel="icon" href="https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Chosen Palette: Orgvein Brand (Deep Teal & Gold) -->
-    <!-- Application Structure Plan: 
-         - Updated logo integration using the provided Google Drive link.
-         - Maintained the professional palette: #0d2a30 (Deep Teal) and #c5a059 (Gold).
-         - Logic and interactive components are optimized for high-impact client presentation.
-    -->
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
@@ -22,182 +14,302 @@
             font-family: 'Inter', sans-serif;
             background-color: #fcfcfc;
             color: #1e293b;
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 350px;
-            max-height: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        @media (max-width: 640px) {
-            .chart-container { height: 300px; }
+            scroll-behavior: smooth;
         }
 
         .glass-panel {
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(203, 213, 225, 0.4);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .timeline-line {
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 24px;
+                width: 2px;
+                background-color: #f1f5f9;
+                z-index: 0;
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        .engine-item { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .engine-content-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .engine-item.active .engine-content-wrapper {
+            max-height: 600px;
+            opacity: 1;
+        }
+
+        .nav-item { position: relative; }
+        .nav-item::after {
+            content: '';
             position: absolute;
-            left: 24px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #f1f5f9;
-            z-index: 0;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #c5a059;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-item:hover::after { width: 100%; }
+
+        /* --- Vertical Investment Architecture Styles --- */
+        
+        .investment-v-bar {
+            width: 12px;
+            background: #f1f5f9;
+            border-radius: 99px;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
         }
 
-        .brand-teal { color: #0d2a30; }
-        .brand-gold { color: #c5a059; }
-        .bg-brand-teal { background-color: #0d2a30; }
-        .bg-brand-gold { background-color: #c5a059; }
-        .border-brand-gold { border-color: #c5a059; }
-        
-        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .v-segment {
+            width: 100%;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            opacity: 0.4;
+            transform: scaleX(0.8);
+        }
+
+        .v-segment.active {
+            opacity: 1;
+            transform: scaleX(2);
+            z-index: 10;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+        }
+
+        .investment-section-trigger {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            opacity: 0.3;
+            transition: all 0.5s ease;
+            padding: 2rem 0;
+        }
+
+        .investment-section-trigger.active {
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        .sticky-visual-container {
+            position: sticky;
+            top: 25%;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legend-pop {
+            position: absolute;
+            left: 40px;
+            background: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border: 1px solid #f1f5f9;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s ease;
+            pointer-events: none;
+            width: max-content;
+        }
+
+        .v-segment.active .legend-pop {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-visual-container {
+                position: relative;
+                top: 0;
+                height: 60px;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            .investment-v-bar {
+                width: 100%;
+                height: 12px;
+                display: flex;
+            }
+            .v-segment {
+                height: 100% !important;
+                transform: scaleY(0.8);
+            }
+            .v-segment.active {
+                transform: scaleY(2);
+                transform-origin: center;
+            }
+            .legend-pop {
+                left: 50%;
+                top: 40px;
+                transform: translateX(-50%) translateY(-10px);
+            }
+            .v-segment.active .legend-pop {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased overflow-x-hidden">
 
-    <!-- Navigation -->
+    <!-- Responsive Navigation -->
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-3">
-                    <img src="https://drive.google.com/uc?export=view&id=1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="Orgvein Logo" class="h-12 w-12 rounded-full object-cover shadow-sm" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
-                    <span class="font-bold text-xl tracking-tight text-[#0d2a30]">Orgvein <span class="text-slate-400 font-light">| Strategic Proposal</span></span>
+            <div class="flex justify-between h-16 md:h-20 items-center">
+                <div class="flex items-center gap-2 md:gap-3">
+                    <div class="h-10 w-10 md:h-12 md:w-12 flex-shrink-0 bg-white rounded-full p-0.5 border border-slate-200 overflow-hidden">
+                        <img src="https://drive.google.com/uc?export=view&id=1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" 
+                             alt="Orgvein" 
+                             class="h-full w-full object-cover rounded-full" 
+                             onerror="this.onerror=null; this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a';">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-base md:text-lg leading-none text-[#0d2a30]">Orgvein</span>
+                        <span class="text-[9px] md:text-[10px] uppercase tracking-widest text-[#c5a059] font-bold">Strategic Proposal</span>
+                    </div>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#vision" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Vision</a>
-                    <a href="#strategy" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Strategy</a>
-                    <a href="#roadmap" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Roadmap</a>
-                    <a href="#investment" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Investment</a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#vision" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Vision</a>
+                    <a href="#strategy" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Strategy</a>
+                    <a href="#roadmap" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Roadmap</a>
+                    <a href="#investment" class="nav-item text-slate-600 hover:text-[#c5a059] text-sm font-semibold transition-colors">Investment</a>
+                </div>
+
+                <div class="md:hidden">
+                    <a href="#investment" class="bg-[#0d2a30] text-[#c5a059] px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider">Invest</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- SECTION 1: HERO & VISION -->
-    <section id="vision" class="pt-20 pb-20 bg-gradient-to-br from-slate-50 to-[#0d2a30]/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-[#0d2a30] text-[#c5a059] text-xs font-bold uppercase tracking-widest mb-8 border border-[#c5a059]/30">
-                Architecting Excellence
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-[#0d2a30] tracking-tight mb-8">
-                Building the <span class="text-[#c5a059]">YME Travel Legacy</span>
-            </h1>
-            <p class="text-xl text-slate-600 leading-relaxed mb-12 max-w-3xl mx-auto">
-                Engineering the architecture required to transition YME from a religious visa leader to a global leisure travel powerhouse.
-            </p>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
-                <div class="glass-panel p-8 rounded-3xl border-l-4 border-slate-300">
-                    <h3 class="text-lg font-bold text-[#0d2a30] mb-4 uppercase tracking-wide">Parent Authority: YME</h3>
-                    <ul class="space-y-3 text-slate-600">
-                        <li class="flex items-center"><span class="mr-3 text-emerald-600 font-bold">✓</span>Religious Visa Domain Leader</li>
-                        <li class="flex items-center"><span class="mr-3 text-emerald-600 font-bold">✓</span>Operational Heritage</li>
-                        <li class="flex items-center"><span class="mr-3 text-emerald-600 font-bold">✓</span>Deep Market Trust</li>
-                    </ul>
-                </div>
-                <div class="glass-panel p-8 rounded-3xl border-l-4 border-[#c5a059]">
-                    <h3 class="text-lg font-bold text-[#0d2a30] mb-4 uppercase tracking-wide">New Horizon: Subsidiary</h3>
-                    <ul class="space-y-3 text-slate-600">
-                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Leisure & Holiday Packages</li>
-                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Global Destination Planning</li>
-                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Independent Brand Operating Unit</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: 5-STAGE GROWTH ENGINE -->
-    <section id="strategy" class="py-24 bg-white">
+    <!-- Section 1: Hero -->
+    <section id="vision" class="pt-12 pb-16 md:pt-24 md:pb-24 bg-gradient-to-br from-slate-50 to-[#0d2a30]/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16">
-                <h2 class="text-4xl font-extrabold text-[#0d2a30]">The 5-Stage Growth Engine</h2>
-                <div class="h-1 w-20 bg-[#c5a059] mt-4 mb-6"></div>
-                <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
-                    Our proprietary framework ensures zero startup friction and long-term scalability.
+            <div class="text-center mb-12 md:mb-20">
+                <div class="inline-flex items-center px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-[#0d2a30] text-[#c5a059] text-[9px] md:text-xs font-black uppercase tracking-widest mb-6 md:mb-8 border border-[#c5a059]/30">
+                    High-Performance Strategy
+                </div>
+                <h1 class="text-3xl md:text-7xl font-extrabold text-[#0d2a30] tracking-tight mb-6 leading-tight">
+                    Building the <span class="text-[#c5a059]">YME Travel Legacy</span>
+                </h1>
+                <p class="text-base md:text-xl text-slate-500 leading-relaxed max-w-3xl mx-auto">
+                    Engineering the architecture required to transition YME from a religious visa leader to a global leisure travel powerhouse.
                 </p>
             </div>
-
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/3 flex flex-col gap-4" id="engine-nav"></div>
-                <div class="lg:w-2/3">
-                    <div id="engine-content" class="h-full bg-slate-50 rounded-3xl border border-slate-100 p-10 flex flex-col justify-center transition-all duration-300 shadow-inner"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+                <div class="glass-panel p-6 md:p-8 rounded-2xl md:rounded-3xl border-l-4 border-slate-300">
+                    <h3 class="text-base md:text-lg font-bold text-[#0d2a30] mb-3 md:mb-4 uppercase tracking-wide">Parent Authority: YME</h3>
+                    <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-slate-600">
+                        <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Religious Visa Domain Leader</li>
+                        <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Proven Operational Heritage</li>
+                        <li class="flex items-center"><span class="mr-3 text-emerald-500 font-bold">✓</span>Deep Market Trust</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6 md:p-8 rounded-2xl md:rounded-3xl border-l-4 border-[#c5a059]">
+                    <h3 class="text-base md:text-lg font-bold text-[#0d2a30] mb-3 md:mb-4 uppercase tracking-wide">New Horizon: Subsidiary</h3>
+                    <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-slate-600">
+                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Leisure & Holiday Packages</li>
+                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Global Destination Planning</li>
+                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Independent Identity & Systems</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: PHASE 1 ROADMAP -->
-    <section id="roadmap" class="py-24 bg-slate-50 border-t border-slate-100">
+    <!-- Section 2: 5-Stage Engine -->
+    <section id="strategy" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-20">
-                <h2 class="text-4xl font-extrabold text-[#0d2a30]">Strategic Roadmap</h2>
-                <p class="mt-4 text-slate-500 font-medium">Phase 1: Foundation Setup | <span class="text-[#c5a059]">7–9 Weeks</span></p>
+            <div class="mb-10 md:mb-16">
+                <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30]">The 5-Stage Growth Engine</h2>
+                <div class="h-1 w-12 md:w-20 bg-[#c5a059] mt-3 md:mt-4"></div>
             </div>
+            <div class="max-w-4xl mx-auto flex flex-col gap-4" id="engine-accordion"></div>
+        </div>
+    </section>
 
-            <div class="relative">
+    <!-- Section 3: Roadmap -->
+    <section id="roadmap" class="py-16 md:py-24 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center md:text-left mb-12 md:mb-20">
+                <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30]">Strategic Roadmap</h2>
+                <p class="mt-2 text-sm md:text-lg text-slate-500">Phase 1: Foundation Setup | <span class="text-[#c5a059] font-bold">7–9 Weeks</span></p>
+            </div>
+            <div class="relative max-w-4xl mx-auto">
                 <div class="timeline-line hidden md:block"></div>
-                <div class="space-y-12" id="timeline-container"></div>
+                <div class="space-y-8 md:space-y-12" id="timeline-container"></div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: INVESTMENT ARCHITECTURE -->
-    <section id="investment" class="py-24 bg-white border-t border-slate-100">
+    <!-- Section 4: Redesigned Investment Architecture (Scroll-Activated Vertical) -->
+    <section id="investment" class="py-16 md:py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-4xl font-extrabold text-[#0d2a30]">Investment Architecture</h2>
-                <p class="mt-4 text-slate-600">Phase 1: Fixed Strategic Engagement</p>
+            <div class="text-center mb-16 md:mb-32">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Investment Architecture</h2>
+                <p class="text-slate-500 text-lg">Phase 1 Strategic Engagement: <span class="text-[#0d2a30] font-black">₹2,15,000</span></p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="glass-panel p-10 rounded-3xl border-t-8 border-t-[#0d2a30] shadow-xl">
-                    <h3 class="text-2xl font-bold text-[#0d2a30] mb-2">Phase 1 Allocation</h3>
-                    <p class="text-sm text-slate-400 mb-8 font-medium">Total: <span class="text-[#0d2a30] font-extrabold">₹2,15,000</span></p>
-                    <div class="chart-container">
-                        <canvas id="investmentChart"></canvas>
-                    </div>
-                    <div class="mt-10 pt-8 border-t border-slate-100 flex justify-between">
-                        <div><div class="text-3xl font-black text-[#0d2a30]">40%</div><div class="text-xs uppercase font-bold text-slate-400">Kickoff</div></div>
-                        <div><div class="text-3xl font-black text-[#0d2a30]">30%</div><div class="text-xs uppercase font-bold text-slate-400">Mid-Phase</div></div>
-                        <div><div class="text-3xl font-black text-[#c5a059]">30%</div><div class="text-xs uppercase font-bold text-slate-400">Sign-off</div></div>
+            <!-- Scroll-Linked Container -->
+            <div class="flex flex-col md:flex-row gap-12 relative">
+                
+                <!-- Left: Sticky Vertical Distribution Bar -->
+                <div class="md:w-1/4 sticky-visual-container">
+                    <div class="investment-v-bar" id="vertical-bar">
+                        <!-- JS Injected Segments -->
                     </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold text-[#0d2a30] mb-6">Future Projections</h3>
-                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-[#c5a059] transition-all">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="font-bold text-[#0d2a30]">Phase 2: Build & Launch</span>
-                            <span class="text-xs font-bold text-[#c5a059] bg-[#c5a059]/10 px-2 py-0.5 rounded">Implementation</span>
-                        </div>
-                        <p class="text-sm text-slate-500 mb-4">Translating design into live systems.</p>
-                        <div class="flex justify-between text-sm font-bold pt-3 border-t border-slate-200/50">
-                            <span class="text-slate-400">6–10 Wks</span>
-                            <span class="text-[#0d2a30]">₹3.0L – ₹5.0L</span>
-                        </div>
+                <!-- Right: Scrolling Content -->
+                <div class="md:w-3/4 pb-[20vh]" id="investment-content-scroll">
+                    <!-- JS Injected Triggers -->
+                </div>
+            </div>
+
+            <!-- Commercial Milestones (Final Section Footer) -->
+            <div class="mt-24 max-w-5xl mx-auto">
+                <div class="bg-[#0d2a30] p-8 md:p-12 rounded-[3rem] text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/3">
+                        <h4 class="text-[#c5a059] text-xs font-black uppercase tracking-widest mb-4">Commercials</h4>
+                        <p class="text-2xl font-bold">Performance-Based Milestones</p>
                     </div>
-                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-[#c5a059] transition-all">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="font-bold text-[#0d2a30]">Phase 3: Optimize</span>
-                            <span class="text-xs font-bold text-[#c5a059] bg-[#c5a059]/10 px-2 py-0.5 rounded">Retainer</span>
+                    <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                        <div>
+                            <div class="text-3xl font-black text-[#c5a059]">40%</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-bold mt-2">Kickoff Engagement</div>
                         </div>
-                        <p class="text-sm text-slate-500 mb-4">Operational stabilization & SOP training.</p>
-                        <div class="flex justify-between text-sm font-bold pt-3 border-t border-slate-200/50">
-                            <span class="text-slate-400">3–6 Mo</span>
-                            <span class="text-[#0d2a30]">₹75k – ₹1.25L / mo</span>
+                        <div>
+                            <div class="text-3xl font-black text-[#c5a059]">30%</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-bold mt-2">Design Sign-off</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-black text-white">30%</div>
+                            <div class="text-[10px] text-slate-400 uppercase font-bold mt-2">Phase 1 Sign-off</div>
                         </div>
                     </div>
                 </div>
@@ -205,65 +317,94 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-[#0d2a30] text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <img src="https://drive.google.com/uc?export=view&id=1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="Orgvein Logo" class="h-16 w-16 mx-auto rounded-full mb-6 border-2 border-[#c5a059] object-cover" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
-            <h2 class="text-3xl font-bold text-[#c5a059] mb-4">Ready for Takeoff</h2>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                By partnering with Orgvein, YME is choosing to build its travel subsidiary on a foundation of discipline, data, and design.
+            <img src="https://drive.google.com/uc?export=view&id=1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" 
+                 alt="Orgvein" 
+                 class="h-16 w-16 mx-auto rounded-full mb-6 border-2 border-[#c5a059] object-cover" 
+                 onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a';">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#c5a059] mb-4 tracking-tight">Ready for Takeoff</h2>
+            <p class="text-sm md:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Build the future of YME Travel on a foundation of discipline, data, and design.
             </p>
-            <button class="bg-[#c5a059] hover:bg-[#b08e48] text-[#0d2a30] font-bold py-4 px-12 rounded-full shadow-2xl transition-all transform hover:-translate-y-1">
+            <button class="bg-[#c5a059] text-[#0d2a30] font-black py-4 px-10 rounded-full shadow-lg uppercase tracking-widest text-xs">
                 Initiate Engagement
             </button>
-            <div class="mt-12 text-[10px] text-slate-500 uppercase tracking-widest">
-                Prepared by Orgvein Services | Strategic Business Proposal 2024
+            <div class="mt-16 pt-8 border-t border-white/5 text-[9px] md:text-[10px] text-slate-500 uppercase tracking-widest">
+                Prepared by Orgvein Services | © 2024
             </div>
         </div>
     </footer>
 
     <script>
-        const growthEngineData = [
-            { id: 1, title: "Diagnose", desc: "Scan market landscape and competitor gaps to identify blue ocean opportunities.", icon: "🔍" },
-            { id: 2, title: "Design", desc: "Define blueprint: legal, financial, and brand. Eliminate ambiguity before execution.", icon: "📐" },
-            { id: 3, title: "Deploy", desc: "Forge: Implement brand, configure CRM/ERP, and hire core team.", icon: "🚀" },
-            { id: 4, title: "Develop", desc: "Calibrate: Stabilization phase. SOP refinement and talent coaching.", icon: "⚙️" },
-            { id: 5, title: "Drive Growth", desc: "Accelerate: Scale lead funnels and expand into new destinations.", icon: "📈" }
+        const engineData = [
+            { id: 1, title: "Diagnose", icon: "🔍", desc: "Intelligence Scan: Identifying competitor gaps and market opportunities where YME's existing trust gives us leverage." },
+            { id: 2, title: "Design", icon: "📐", desc: "Architecture: Building the legal, financial, and brand blueprint to eliminate ambiguity before launch." },
+            { id: 3, title: "Deploy", icon: "🚀", desc: "Forging: Launching brand identity, configuring CRM/ERP infrastructure, and hiring the core team." },
+            { id: 4, title: "Develop", icon: "⚙️", desc: "Calibration: Stabilizing operations, refining SOPs, and coaching sales/ops teams." },
+            { id: 5, title: "Drive Growth", icon: "📈", desc: "Acceleration: Scaling lead generation and expanding into new leisure destinations." }
         ];
 
         const roadmapData = [
-            { week: "Week 1", title: "Identity", items: ["Company name finalization", "Govt. Registrations Initialization", "Parent/Sub Boundaries"], type: "Statutory" },
-            { week: "Week 2", title: "Strategy", items: ["Target Segmentation", "Service Portfolio", "Differentiation"], type: "Strategic" },
-            { week: "Week 3", title: "Brand", items: ["Visual Identity Direction", "Tone of Voice", "Governance Note"], type: "Creative" },
-            { week: "Weeks 4–6", title: "Systems", items: ["Financial Chart of Accounts", "CRM/ERP Blueprint", "Hiring Plan"], type: "Operations" },
-            { week: "Week 7", title: "Launchpad", items: ["Phase 1 Master Doc", "Phase 2 Plan Approval"], type: "Closure" }
+            { week: "Week 1", title: "Identity", items: ["Name Finalization", "Statutory Process", "Boundary Definition"] },
+            { week: "Week 2", title: "Strategy", items: ["Target Segmentation", "Portfolio Design", "Framework"] },
+            { week: "Week 3", title: "Branding", items: ["Visual Identity", "Voice Guidelines", "Model Confirmation"] },
+            { week: "Weeks 4–6", title: "Operations", items: ["Financial Charts", "CRM/ERP Selection", "HR Roadmap"] },
+            { week: "Week 7", title: "Sign-off", items: ["Output Consolidation", "Leadership Review", "Phase 2 Blueprint"] }
         ];
 
-        const investmentData = {
-            labels: ["Brand Identity", "Systems Design", "Financial Design", "Legal Design", "Org Design", "Market Strategy"],
-            data: [45000, 45000, 40000, 30000, 30000, 25000]
-        };
+        const investmentData = [
+            { section: "Brand Strategy", fee: 45000, color: "#0d2a30", value: "Creative Identity & Visuals" },
+            { section: "Systems Design", fee: 45000, color: "#c5a059", value: "Tech Hub & Automation" },
+            { section: "Financial Design", fee: 40000, color: "#1e3a40", value: "Profit Architecture" },
+            { section: "Legal & Governance", fee: 30000, color: "#d4af37", value: "Entity Protection" },
+            { section: "Org Architecture", fee: 30000, color: "#2a4a50", value: "Talent Strategy" },
+            { section: "Market Positioning", fee: 25000, color: "#e2c275", value: "Growth Direction" }
+        ];
 
-        function renderGrowthEngine() {
-            const nav = document.getElementById('engine-nav');
-            const content = document.getElementById('engine-content');
-            growthEngineData.forEach((stage, index) => {
-                const btn = document.createElement('button');
-                btn.className = `text-left px-8 py-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group ${index === 0 ? 'bg-[#0d2a30] border-[#0d2a30] text-white shadow-xl scale-105' : 'bg-white border-slate-100 text-slate-500 hover:border-[#c5a059]'}`;
-                btn.innerHTML = `<span class="font-bold text-lg">${stage.title}</span><span class="text-xl opacity-30">→</span>`;
-                btn.onclick = () => updateEngineState(index);
-                nav.appendChild(btn);
+        function renderEngine() {
+            const container = document.getElementById('engine-accordion');
+            engineData.forEach((stage, index) => {
+                const item = document.createElement('div');
+                item.className = `engine-item border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm ${index === 0 ? 'active border-[#c5a059]' : ''}`;
+                item.innerHTML = `
+                    <button class="w-full flex items-center justify-between p-6 md:p-8 text-left transition-colors" onclick="toggleEngine(${index})">
+                        <div class="flex items-center gap-4 md:gap-6">
+                            <span class="text-2xl">${stage.icon}</span>
+                            <div>
+                                <span class="block text-[10px] uppercase tracking-widest text-[#c5a059] font-bold mb-1">Stage 0${index + 1}</span>
+                                <span class="text-lg md:text-2xl font-extrabold text-[#0d2a30]">${stage.title}</span>
+                            </div>
+                        </div>
+                        <div class="engine-toggle-icon transition-transform duration-300 ${index === 0 ? 'rotate-180' : ''}">
+                            <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </button>
+                    <div class="engine-content-wrapper">
+                        <div class="px-6 md:px-8 pb-8 border-t border-slate-100 pt-6">
+                            <p class="text-sm md:text-lg text-slate-600 leading-relaxed max-w-2xl">${stage.desc}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
             });
-            updateEngineState(0);
         }
 
-        function updateEngineState(idx) {
-            const btns = document.getElementById('engine-nav').children;
-            const content = document.getElementById('engine-content');
-            const data = growthEngineData[idx];
-            Array.from(btns).forEach((btn, i) => {
-                btn.className = i === idx ? 'text-left px-8 py-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group bg-[#0d2a30] border-[#0d2a30] text-white shadow-xl scale-105' : 'text-left px-8 py-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group bg-white border-slate-100 text-slate-500 hover:border-[#c5a059]';
+        function toggleEngine(idx) {
+            const items = document.querySelectorAll('.engine-item');
+            items.forEach((item, i) => {
+                const icon = item.querySelector('.engine-toggle-icon');
+                if (i === idx) {
+                    const isActive = item.classList.contains('active');
+                    item.classList.toggle('active', !isActive);
+                    item.classList.toggle('border-[#c5a059]', !isActive);
+                    icon.classList.toggle('rotate-180', !isActive);
+                } else {
+                    item.classList.remove('active', 'border-[#c5a059]');
+                    icon.classList.remove('rotate-180');
+                }
             });
-            content.innerHTML = `<div class="animate-fade-in"><div class="text-6xl mb-6">${data.icon}</div><h3 class="text-3xl font-bold text-[#0d2a30] mb-4">${data.title}</h3><p class="text-xl text-slate-500 leading-relaxed">${data.desc}</p></div>`;
         }
 
         function renderRoadmap() {
@@ -273,44 +414,86 @@
                 el.className = "relative md:pl-20 group";
                 el.innerHTML = `
                     <div class="hidden md:flex absolute left-0 top-0 w-12 h-12 bg-[#0d2a30] text-[#c5a059] rounded-full items-center justify-center font-black border-2 border-[#c5a059] z-10 shadow-lg">${index + 1}</div>
-                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-xl font-bold text-[#0d2a30]">${item.title}</h3>
-                            <span class="px-2 py-1 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded">${item.week}</span>
+                    <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all border-l-4 border-l-transparent hover:border-l-[#c5a059]">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-base md:text-xl font-bold text-[#0d2a30]">${item.title}</h3>
+                            <span class="px-2 py-0.5 bg-slate-50 text-slate-400 text-[9px] md:text-[10px] font-black uppercase tracking-widest rounded">${item.week}</span>
                         </div>
-                        <ul class="space-y-2">${item.items.map(pt => `<li class="text-slate-500 flex items-center text-sm"><span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full mr-3"></span>${pt}</li>`).join('')}</ul>
+                        <ul class="space-y-2">${item.items.map(pt => `<li class="text-slate-500 flex items-center text-[11px] md:text-sm"><span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full mr-3 shrink-0"></span>${pt}</li>`).join('')}</ul>
                     </div>
                 `;
                 container.appendChild(el);
             });
         }
 
-        function initCharts() {
-            const ctx = document.getElementById('investmentChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: investmentData.labels,
-                    datasets: [{
-                        data: investmentData.data,
-                        backgroundColor: ['#0d2a30', '#c5a059', '#1e3a40', '#d4af37', '#2a4a50', '#e2c275'],
-                        borderWidth: 0,
-                        hoverOffset: 20
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '75%',
-                    plugins: { legend: { display: false } }
+        function initInvestmentScroll() {
+            const bar = document.getElementById('vertical-bar');
+            const scrollContainer = document.getElementById('investment-content-scroll');
+            const total = 215000;
+
+            investmentData.forEach((item, idx) => {
+                const percentage = (item.fee / total) * 100;
+                
+                // Vertical Segment
+                const segment = document.createElement('div');
+                segment.className = 'v-segment';
+                segment.id = `v-segment-${idx}`;
+                segment.style.height = `${percentage}%`;
+                segment.style.backgroundColor = item.color;
+                
+                // Legend Popup (hidden until active)
+                segment.innerHTML = `
+                    <div class="legend-pop">
+                        <div class="text-[10px] font-black text-[#c5a059] uppercase mb-1">Fee Value</div>
+                        <div class="text-xl font-black text-[#0d2a30]">₹${item.fee.toLocaleString()}</div>
+                    </div>
+                `;
+                bar.appendChild(segment);
+
+                // Content Trigger
+                const trigger = document.createElement('div');
+                trigger.className = 'investment-section-trigger px-4 md:px-12';
+                trigger.id = `trigger-${idx}`;
+                trigger.innerHTML = `
+                    <div class="max-w-xl">
+                        <h4 class="text-2xl md:text-4xl font-extrabold text-[#0d2a30] mb-4">${item.section}</h4>
+                        <p class="text-lg md:text-xl text-slate-500 leading-relaxed font-light">${item.value}</p>
+                    </div>
+                `;
+                scrollContainer.appendChild(trigger);
+            });
+
+            // Scroll Logic
+            window.addEventListener('scroll', () => {
+                const triggers = document.querySelectorAll('.investment-section-trigger');
+                let activeIdx = -1;
+                
+                triggers.forEach((trigger, i) => {
+                    const rect = trigger.getBoundingClientRect();
+                    // Activate if the top of the element is within the middle 40% of the screen
+                    if (rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4) {
+                        activeIdx = i;
+                    }
+                });
+
+                if (activeIdx !== -1) {
+                    updateActiveVisual(activeIdx);
                 }
             });
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderGrowthEngine();
+        function updateActiveVisual(idx) {
+            const segments = document.querySelectorAll('.v-segment');
+            const triggers = document.querySelectorAll('.investment-section-trigger');
+            
+            segments.forEach((seg, i) => seg.classList.toggle('active', i === idx));
+            triggers.forEach((trig, i) => trig.classList.toggle('active', i === idx));
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderEngine();
             renderRoadmap();
-            initCharts();
+            initInvestmentScroll();
         });
     </script>
 </body>

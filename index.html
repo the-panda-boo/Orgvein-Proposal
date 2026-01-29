@@ -3,237 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YME Travel Subsidiary | Strategic Business Proposal</title>
+    <title>YME Travel Subsidiary | Strategic Proposal Infographic</title>
+    <link rel="icon" href="https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Orgvein Brand (Deep Teal & Gold) -->
+    <!-- Application Structure Plan: 
+         - Updated logo integration using the provided Google Drive link.
+         - Maintained the professional palette: #0d2a30 (Deep Teal) and #c5a059 (Gold).
+         - Logic and interactive components are optimized for high-impact client presentation.
+    -->
+
     <style>
-        /* Custom scrollbar for cleaner look */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d1d5db; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af; 
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            color: #1e293b;
         }
 
-        /* Chart container constraint classes */
-        .chart-wrapper {
+        .chart-container {
             position: relative;
             width: 100%;
             max-width: 600px;
-            height: 300px; /* Reduced for mobile */
-            margin: 0 auto;
-        }
-
-        @media (min-width: 768px) {
-            .chart-wrapper {
-                height: 400px;
-            }
-        }
-
-        /* Timeline connector line - only visible on tablet/desktop */
-        @media (min-width: 768px) {
-            .timeline-line::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 20px;
-                width: 2px;
-                background-color: #e5e7eb;
-                z-index: 0;
-            }
+            height: 350px;
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .active-tab {
-            border-bottom: 2px solid #ea580c; 
-            color: #ea580c;
+        @media (max-width: 640px) {
+            .chart-container { height: 300px; }
         }
 
-        /* Mobile specific adjustments */
-        @media (max-width: 640px) {
-            .mobile-hide { display: none; }
-            .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(203, 213, 225, 0.4);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
+
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #f1f5f9;
+            z-index: 0;
+        }
+
+        .brand-teal { color: #0d2a30; }
+        .brand-gold { color: #c5a059; }
+        .bg-brand-teal { background-color: #0d2a30; }
+        .bg-brand-gold { background-color: #c5a059; }
+        .border-brand-gold { border-color: #c5a059; }
+        
+        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-orange-100 selection:text-orange-800">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl md:text-2xl text-orange-600 font-bold">Orgvein</span>
-                    <span class="hidden sm:inline text-slate-400">|</span>
-                    <span class="hidden sm:inline font-semibold text-slate-700 text-sm md:text-base">YME Proposal</span>
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <img src="https://drive.google.com/uc?export=view&id=1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="Orgvein Logo" class="h-12 w-12 rounded-full object-cover shadow-sm" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
+                    <span class="font-bold text-xl tracking-tight text-[#0d2a30]">Orgvein <span class="text-slate-400 font-light">| Strategic Proposal</span></span>
                 </div>
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex space-x-6 lg:space-x-8">
-                    <a href="#vision" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Vision</a>
-                    <a href="#framework" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Growth Engine</a>
-                    <a href="#roadmap" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Roadmap</a>
-                    <a href="#investment" class="text-slate-600 hover:text-orange-600 text-sm font-medium transition-colors">Investment</a>
-                </div>
-                <!-- Mobile Nav Icons -->
-                <div class="md:hidden flex space-x-4">
-                    <a href="#framework" class="text-slate-400 hover:text-orange-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></a>
-                    <a href="#investment" class="text-slate-400 hover:text-orange-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#vision" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Vision</a>
+                    <a href="#strategy" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Strategy</a>
+                    <a href="#roadmap" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Roadmap</a>
+                    <a href="#investment" class="text-slate-600 hover:text-[#c5a059] px-1 py-2 text-sm font-medium transition-colors">Investment</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="vision" class="relative bg-white pt-12 pb-16 md:pt-24 md:pb-28 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-3xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl mb-6">
-                <span class="block">Architecting the Future of</span>
-                <span class="block text-orange-600">YME Travel</span>
+    <!-- SECTION 1: HERO & VISION -->
+    <section id="vision" class="pt-20 pb-20 bg-gradient-to-br from-slate-50 to-[#0d2a30]/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-[#0d2a30] text-[#c5a059] text-xs font-bold uppercase tracking-widest mb-8 border border-[#c5a059]/30">
+                Architecting Excellence
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-[#0d2a30] tracking-tight mb-8">
+                Building the <span class="text-[#c5a059]">YME Travel Legacy</span>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-500 mb-8 md:mb-12">
-                From Service to Experience. A strategic partnership to design, build, and scale a new leisure travel powerhouse.
+            <p class="text-xl text-slate-600 leading-relaxed mb-12 max-w-3xl mx-auto">
+                Engineering the architecture required to transition YME from a religious visa leader to a global leisure travel powerhouse.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto text-left">
-                <div class="bg-slate-50 p-5 md:p-6 rounded-xl border border-slate-100 shadow-sm">
-                    <div class="text-orange-600 text-lg md:text-xl font-bold mb-1">Legacy Extension</div>
-                    <p class="text-slate-600 text-sm">Leveraging YME's visa credibility to capture the leisure market with agility.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
+                <div class="glass-panel p-8 rounded-3xl border-l-4 border-slate-300">
+                    <h3 class="text-lg font-bold text-[#0d2a30] mb-4 uppercase tracking-wide">Parent Authority: YME</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center"><span class="mr-3 text-emerald-600 font-bold">✓</span>Religious Visa Domain Leader</li>
+                        <li class="flex items-center"><span class="mr-3 text-emerald-600 font-bold">✓</span>Operational Heritage</li>
+                        <li class="flex items-center"><span class="mr-3 text-emerald-600 font-bold">✓</span>Deep Market Trust</li>
+                    </ul>
                 </div>
-                <div class="bg-slate-50 p-5 md:p-6 rounded-xl border border-slate-100 shadow-sm">
-                    <div class="text-orange-600 text-lg md:text-xl font-bold mb-1">Single-Window</div>
-                    <p class="text-slate-600 text-sm">One partner for Strategy, Branding, Systems, Compliance, and Talent.</p>
-                </div>
-                <div class="bg-slate-50 p-5 md:p-6 rounded-xl border border-slate-100 shadow-sm">
-                    <div class="text-orange-600 text-lg md:text-xl font-bold mb-1">Execution First</div>
-                    <p class="text-slate-600 text-sm">Engineering the architecture required for sustainable scale.</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Framework Section -->
-    <section id="framework" class="py-12 md:py-16 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">The 5-Stage Growth Engine</h2>
-                <p class="mt-3 text-base md:text-lg text-slate-500">
-                    Our proprietary framework moves the subsidiary from concept to market leader.
-                </p>
-            </div>
-
-            <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
-                <!-- Navigation List - Scrollable on mobile -->
-                <div class="lg:w-1/3 flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 space-x-3 lg:space-x-0 lg:space-y-2 snap-x" id="framework-nav">
-                    <!-- Javascript will populate this -->
-                </div>
-
-                <!-- Content Display -->
-                <div class="lg:w-2/3 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 min-h-[300px] md:min-h-[400px] flex flex-col justify-center transition-all duration-300" id="framework-content">
-                    <!-- Javascript will populate this -->
+                <div class="glass-panel p-8 rounded-3xl border-l-4 border-[#c5a059]">
+                    <h3 class="text-lg font-bold text-[#0d2a30] mb-4 uppercase tracking-wide">New Horizon: Subsidiary</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Leisure & Holiday Packages</li>
+                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Global Destination Planning</li>
+                        <li class="flex items-center"><span class="mr-3 text-[#c5a059] font-bold">➜</span>Independent Brand Operating Unit</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Phase 1 Roadmap Section -->
-    <section id="roadmap" class="py-12 md:py-16 bg-white border-t border-slate-200">
+    <!-- SECTION 2: 5-STAGE GROWTH ENGINE -->
+    <section id="strategy" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-8 md:mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Phase 1: Foundation Design</h2>
-                <p class="mt-3 text-base md:text-lg text-slate-500 max-w-3xl">
-                    Six critical workstreams to build absolute clarity before deployment (7-9 Weeks).
+            <div class="mb-16">
+                <h2 class="text-4xl font-extrabold text-[#0d2a30]">The 5-Stage Growth Engine</h2>
+                <div class="h-1 w-20 bg-[#c5a059] mt-4 mb-6"></div>
+                <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                    Our proprietary framework ensures zero startup friction and long-term scalability.
                 </p>
-                <div class="mt-4 inline-flex items-center px-4 py-2 rounded-full bg-orange-50 text-orange-700 text-xs md:text-sm font-medium border border-orange-100">
-                    <span class="mr-2">⚠</span> Dependency: Govt. Registration (~30 Days)
-                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
-                <!-- Timeline Navigation (Left) -->
-                <div class="lg:col-span-5 relative md:timeline-line pl-2 flex md:block overflow-x-auto md:overflow-x-visible space-x-4 md:space-x-0 snap-x" id="timeline-list">
-                    <!-- JS Injected -->
-                </div>
-
-                <!-- Detail View (Right) -->
-                <div class="lg:col-span-7">
-                    <div id="timeline-detail" class="md:sticky md:top-24 bg-slate-50 rounded-xl p-6 md:p-8 border border-slate-200 shadow-lg transition-all duration-300">
-                        <div class="text-center text-slate-400 py-12">
-                            Select a week to view details
-                        </div>
-                    </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/3 flex flex-col gap-4" id="engine-nav"></div>
+                <div class="lg:w-2/3">
+                    <div id="engine-content" class="h-full bg-slate-50 rounded-3xl border border-slate-100 p-10 flex flex-col justify-center transition-all duration-300 shadow-inner"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Investment Section -->
-    <section id="investment" class="py-12 md:py-16 bg-slate-50 border-t border-slate-200">
+    <!-- SECTION 3: PHASE 1 ROADMAP -->
+    <section id="roadmap" class="py-24 bg-slate-50 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Investment Structure: Phase 1</h2>
-                <p class="mt-3 text-base md:text-lg text-slate-500">
-                    Total engagement fee of <strong>₹2,15,000</strong>.
-                </p>
+            <div class="mb-20">
+                <h2 class="text-4xl font-extrabold text-[#0d2a30]">Strategic Roadmap</h2>
+                <p class="mt-4 text-slate-500 font-medium">Phase 1: Foundation Setup | <span class="text-[#c5a059]">7–9 Weeks</span></p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
-                <!-- Chart Column -->
-                <div class="flex flex-col items-center">
-                    <div class="chart-wrapper">
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+                <div class="space-y-12" id="timeline-container"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: INVESTMENT ARCHITECTURE -->
+    <section id="investment" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-4xl font-extrabold text-[#0d2a30]">Investment Architecture</h2>
+                <p class="mt-4 text-slate-600">Phase 1: Fixed Strategic Engagement</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="glass-panel p-10 rounded-3xl border-t-8 border-t-[#0d2a30] shadow-xl">
+                    <h3 class="text-2xl font-bold text-[#0d2a30] mb-2">Phase 1 Allocation</h3>
+                    <p class="text-sm text-slate-400 mb-8 font-medium">Total: <span class="text-[#0d2a30] font-extrabold">₹2,15,000</span></p>
+                    <div class="chart-container">
                         <canvas id="investmentChart"></canvas>
                     </div>
-                    <p class="mt-4 text-xs md:text-sm text-slate-400 italic text-center">Interact with segments for details</p>
+                    <div class="mt-10 pt-8 border-t border-slate-100 flex justify-between">
+                        <div><div class="text-3xl font-black text-[#0d2a30]">40%</div><div class="text-xs uppercase font-bold text-slate-400">Kickoff</div></div>
+                        <div><div class="text-3xl font-black text-[#0d2a30]">30%</div><div class="text-xs uppercase font-bold text-slate-400">Mid-Phase</div></div>
+                        <div><div class="text-3xl font-black text-[#c5a059]">30%</div><div class="text-xs uppercase font-bold text-slate-400">Sign-off</div></div>
+                    </div>
                 </div>
 
-                <!-- Table Column -->
-                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-slate-200">
-                            <thead class="bg-slate-50">
-                                <tr>
-                                    <th scope="col" class="px-4 md:px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Workstream</th>
-                                    <th scope="col" class="px-4 md:px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">Fee</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-slate-200 text-sm md:text-base" id="investment-table-body">
-                                <!-- JS Injected -->
-                            </tbody>
-                            <tfoot class="bg-slate-50 font-bold">
-                                <tr>
-                                    <td class="px-4 md:px-6 py-4 text-slate-900">Total Phase 1</td>
-                                    <td class="px-4 md:px-6 py-4 text-right text-orange-600">₹2,15,000</td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-[#0d2a30] mb-6">Future Projections</h3>
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-[#c5a059] transition-all">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-[#0d2a30]">Phase 2: Build & Launch</span>
+                            <span class="text-xs font-bold text-[#c5a059] bg-[#c5a059]/10 px-2 py-0.5 rounded">Implementation</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4">Translating design into live systems.</p>
+                        <div class="flex justify-between text-sm font-bold pt-3 border-t border-slate-200/50">
+                            <span class="text-slate-400">6–10 Wks</span>
+                            <span class="text-[#0d2a30]">₹3.0L – ₹5.0L</span>
+                        </div>
                     </div>
-                    
-                    <div class="px-4 md:px-6 py-4 bg-orange-50 border-t border-orange-100">
-                        <h4 class="text-xs md:text-sm font-semibold text-orange-800 mb-3">Payment Milestones</h4>
-                        <div class="grid grid-cols-3 gap-2 md:gap-4 text-[10px] md:text-xs text-orange-700 text-center">
-                            <div>
-                                <span class="block font-bold text-base md:text-lg">40%</span>
-                                Kickoff
-                            </div>
-                            <div>
-                                <span class="block font-bold text-base md:text-lg">30%</span>
-                                Mid-Phase
-                            </div>
-                            <div>
-                                <span class="block font-bold text-base md:text-lg">30%</span>
-                                Sign-off
-                            </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-[#c5a059] transition-all">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-bold text-[#0d2a30]">Phase 3: Optimize</span>
+                            <span class="text-xs font-bold text-[#c5a059] bg-[#c5a059]/10 px-2 py-0.5 rounded">Retainer</span>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4">Operational stabilization & SOP training.</p>
+                        <div class="flex justify-between text-sm font-bold pt-3 border-t border-slate-200/50">
+                            <span class="text-slate-400">3–6 Mo</span>
+                            <span class="text-[#0d2a30]">₹75k – ₹1.25L / mo</span>
                         </div>
                     </div>
                 </div>
@@ -241,255 +205,112 @@
         </div>
     </section>
 
-    <!-- Future Phases Section -->
-    <section id="future" class="py-12 md:py-16 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-8 text-center md:text-left">Scaling Beyond</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                <!-- Phase 2 -->
-                <div class="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 transition-all">
-                    <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-[10px] px-2 py-1 rounded-bl-lg font-mono">Build</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Phase 2: Deploy</h3>
-                    <p class="text-xs md:text-sm text-slate-500 mb-4">Translating designs into live systems. Go-live, CRM setup, and hiring.</p>
-                    <div class="mt-auto space-y-1 border-t border-slate-100 pt-3">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-400">Duration</span>
-                            <span class="font-medium text-slate-900">6–10 Wks</span>
-                        </div>
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-400">Budget</span>
-                            <span class="font-medium text-orange-600">₹3L - ₹5L</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phase 3 -->
-                <div class="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 transition-all">
-                    <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-[10px] px-2 py-1 rounded-bl-lg font-mono">Retainer</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Phase 3: Develop</h3>
-                    <p class="text-xs md:text-sm text-slate-500 mb-4">Operational stabilization, training, and marketing maturity.</p>
-                    <div class="mt-auto space-y-1 border-t border-slate-100 pt-3">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-400">Duration</span>
-                            <span class="font-medium text-slate-900">3–6 Mo</span>
-                        </div>
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-400">Budget</span>
-                            <span class="font-medium text-orange-600">₹75k - ₹1.2L/mo</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Phase 4 -->
-                <div class="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-orange-300 transition-all sm:col-span-2 md:col-span-1">
-                    <div class="absolute top-0 right-0 bg-slate-100 text-slate-500 text-[10px] px-2 py-1 rounded-bl-lg font-mono">Growth</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-2">Phase 4: Drive</h3>
-                    <p class="text-xs md:text-sm text-slate-500 mb-4">Lead generation scale-up and new destination expansion.</p>
-                    <div class="mt-auto space-y-1 border-t border-slate-100 pt-3">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-400">Duration</span>
-                            <span class="font-medium text-slate-900">Ongoing</span>
-                        </div>
-                        <div class="flex justify-between text-xs">
-                            <span class="text-slate-400">Budget</span>
-                            <span class="font-medium text-orange-600">₹1L - ₹2L/mo</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-slate-900 text-white py-12">
+    <footer class="bg-[#0d2a30] text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-xl md:text-2xl font-bold mb-4">Ready for Takeoff?</h2>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-8 text-sm md:text-base">
+            <img src="https://drive.google.com/uc?export=view&id=1jPpPN6_gqkgqJCAE5xFtGRSueuiq4F95" alt="Orgvein Logo" class="h-16 w-16 mx-auto rounded-full mb-6 border-2 border-[#c5a059] object-cover" onerror="this.src='https://github.com/user-attachments/assets/2cfee8e1-3696-4d78-ba2c-437ee8eba33a'">
+            <h2 class="text-3xl font-bold text-[#c5a059] mb-4">Ready for Takeoff</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
                 By partnering with Orgvein, YME is choosing to build its travel subsidiary on a foundation of discipline, data, and design.
             </p>
-            <div class="inline-block bg-orange-600 text-white text-xs md:text-sm font-semibold px-6 md:px-8 py-3 rounded-lg shadow-lg">
-                Authorized Signatory - Orgvein Services
+            <button class="bg-[#c5a059] hover:bg-[#b08e48] text-[#0d2a30] font-bold py-4 px-12 rounded-full shadow-2xl transition-all transform hover:-translate-y-1">
+                Initiate Engagement
+            </button>
+            <div class="mt-12 text-[10px] text-slate-500 uppercase tracking-widest">
+                Prepared by Orgvein Services | Strategic Business Proposal 2024
             </div>
-            <p class="mt-8 text-[10px] md:text-xs text-slate-600 uppercase tracking-widest">© 2024 Orgvein Services | Confidential</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        const frameworkData = [
-            { id: 'stage1', title: '1: Diagnose', subtitle: 'Strategic Discovery', desc: 'Scanning the landscape and competitor gaps to identify specific "blue ocean" opportunities.' },
-            { id: 'stage2', title: '2: Design', subtitle: 'Blueprint Definition', desc: 'Architecting the foundation—legal, financial, and brand—to eliminate operational ambiguity.' },
-            { id: 'stage3', title: '3: Deploy', subtitle: 'Forge', desc: 'Go-live phase: implementing the brand, configuring CRM/ERP systems, and hiring the core team.' },
-            { id: 'stage4', title: '4: Develop', subtitle: 'Calibrate', desc: 'Stabilizing operations through SOP refinement and intensive sales/system coaching.' },
-            { id: 'stage5', title: '5: Drive', subtitle: 'Accelerate', desc: 'Scaling revenue through funnel optimization and aggressive destination expansion.' }
+        const growthEngineData = [
+            { id: 1, title: "Diagnose", desc: "Scan market landscape and competitor gaps to identify blue ocean opportunities.", icon: "🔍" },
+            { id: 2, title: "Design", desc: "Define blueprint: legal, financial, and brand. Eliminate ambiguity before execution.", icon: "📐" },
+            { id: 3, title: "Deploy", desc: "Forge: Implement brand, configure CRM/ERP, and hire core team.", icon: "🚀" },
+            { id: 4, title: "Develop", desc: "Calibrate: Stabilization phase. SOP refinement and talent coaching.", icon: "⚙️" },
+            { id: 5, title: "Drive Growth", desc: "Accelerate: Scale lead funnels and expand into new destinations.", icon: "📈" }
         ];
 
         const roadmapData = [
-            { week: 'Week 1', title: 'Identity', objectives: ['Company name finalization', 'Statutory initialization (PAN/GST)', 'Boundary definition'], outputs: ['Approved name', 'Registrations initiated'] },
-            { week: 'Week 2', title: 'Strategy', objectives: ['Market segmentation', 'Service portfolio', 'Positioning statement'], outputs: ['Strategy document', 'Market framework'] },
-            { week: 'Week 3', title: 'Architecture', objectives: ['Visual identity (Logo brief)', 'Legal structure confirmation', 'Governance logic'], outputs: ['Identity blueprint', 'Governance note'] },
-            { week: 'Weeks 4-6', title: 'Operations', objectives: ['Financial framework', 'Org structure & hiring', 'CRM/ERP blueprint'], outputs: ['Financial design', 'Hiring roadmap'] },
-            { week: 'Week 7', title: 'Launch', objectives: ['Output consolidation', 'Leadership review', 'Phase 2 readiness'], outputs: ['Master document', 'Execution plan'] }
+            { week: "Week 1", title: "Identity", items: ["Company name finalization", "Govt. Registrations Initialization", "Parent/Sub Boundaries"], type: "Statutory" },
+            { week: "Week 2", title: "Strategy", items: ["Target Segmentation", "Service Portfolio", "Differentiation"], type: "Strategic" },
+            { week: "Week 3", title: "Brand", items: ["Visual Identity Direction", "Tone of Voice", "Governance Note"], type: "Creative" },
+            { week: "Weeks 4–6", title: "Systems", items: ["Financial Chart of Accounts", "CRM/ERP Blueprint", "Hiring Plan"], type: "Operations" },
+            { week: "Week 7", title: "Launchpad", items: ["Phase 1 Master Doc", "Phase 2 Plan Approval"], type: "Closure" }
         ];
 
-        const investmentData = [
-            { label: 'Market Strategy', value: 25000, desc: 'Segment clarity' },
-            { label: 'Brand Identity', value: 45000, desc: 'Design blueprint' },
-            { label: 'Legal Design', value: 30000, desc: 'Structure note' },
-            { label: 'Financial Design', value: 40000, desc: 'Pricing logic' },
-            { label: 'HR Architecture', value: 30000, desc: 'Hiring roadmap' },
-            { label: 'Systems Design', value: 45000, desc: 'Tech blueprint' }
-        ];
+        const investmentData = {
+            labels: ["Brand Identity", "Systems Design", "Financial Design", "Legal Design", "Org Design", "Market Strategy"],
+            data: [45000, 45000, 40000, 30000, 30000, 25000]
+        };
 
-        // --- Logic: Framework Section ---
-        const frameworkNav = document.getElementById('framework-nav');
-        const frameworkContent = document.getElementById('framework-content');
-        let activeStageIndex = 0;
-
-        function renderFramework() {
-            frameworkNav.innerHTML = '';
-            frameworkData.forEach((stage, index) => {
+        function renderGrowthEngine() {
+            const nav = document.getElementById('engine-nav');
+            const content = document.getElementById('engine-content');
+            growthEngineData.forEach((stage, index) => {
                 const btn = document.createElement('button');
-                const isActive = index === activeStageIndex;
-                btn.className = `min-w-[140px] md:w-full snap-center text-left px-4 md:px-6 py-3 md:py-4 rounded-xl border transition-all duration-200 flex flex-col md:flex-row md:items-center md:justify-between group ${isActive ? 'bg-orange-600 border-orange-600 text-white shadow-md' : 'bg-white border-slate-200 text-slate-600 hover:border-orange-300 hover:bg-orange-50'}`;
-                
-                btn.innerHTML = `
-                    <div class="pointer-events-none">
-                        <span class="block text-[10px] uppercase tracking-wider opacity-75 font-semibold">Stage</span>
-                        <span class="block font-bold text-sm md:text-lg whitespace-nowrap">${stage.title.split(': ')[1] || stage.title}</span>
-                    </div>
-                    <span class="hidden md:inline text-2xl font-light opacity-50 ${isActive ? 'text-white' : 'text-slate-300'}">→</span>
-                `;
-                
-                btn.onclick = () => {
-                    activeStageIndex = index;
-                    renderFramework();
-                };
-                frameworkNav.appendChild(btn);
+                btn.className = `text-left px-8 py-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group ${index === 0 ? 'bg-[#0d2a30] border-[#0d2a30] text-white shadow-xl scale-105' : 'bg-white border-slate-100 text-slate-500 hover:border-[#c5a059]'}`;
+                btn.innerHTML = `<span class="font-bold text-lg">${stage.title}</span><span class="text-xl opacity-30">→</span>`;
+                btn.onclick = () => updateEngineState(index);
+                nav.appendChild(btn);
             });
-
-            const stage = frameworkData[activeStageIndex];
-            frameworkContent.innerHTML = `
-                <div class="animate-fade-in">
-                    <div class="inline-block px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wide mb-3">
-                        Stage ${activeStageIndex + 1}
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">${stage.subtitle}</h3>
-                    <div class="h-1 w-12 bg-orange-500 mb-4 md:mb-6 rounded-full"></div>
-                    <p class="text-sm md:text-lg text-slate-600 leading-relaxed">${stage.desc}</p>
-                </div>
-            `;
+            updateEngineState(0);
         }
 
-        // --- Logic: Roadmap Section ---
-        const timelineList = document.getElementById('timeline-list');
-        const timelineDetail = document.getElementById('timeline-detail');
-        let activeRoadmapIndex = 0;
+        function updateEngineState(idx) {
+            const btns = document.getElementById('engine-nav').children;
+            const content = document.getElementById('engine-content');
+            const data = growthEngineData[idx];
+            Array.from(btns).forEach((btn, i) => {
+                btn.className = i === idx ? 'text-left px-8 py-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group bg-[#0d2a30] border-[#0d2a30] text-white shadow-xl scale-105' : 'text-left px-8 py-5 rounded-2xl border transition-all duration-300 flex items-center justify-between group bg-white border-slate-100 text-slate-500 hover:border-[#c5a059]';
+            });
+            content.innerHTML = `<div class="animate-fade-in"><div class="text-6xl mb-6">${data.icon}</div><h3 class="text-3xl font-bold text-[#0d2a30] mb-4">${data.title}</h3><p class="text-xl text-slate-500 leading-relaxed">${data.desc}</p></div>`;
+        }
 
         function renderRoadmap() {
-            timelineList.innerHTML = '';
+            const container = document.getElementById('timeline-container');
             roadmapData.forEach((item, index) => {
-                const div = document.createElement('div');
-                const isActive = index === activeRoadmapIndex;
-                div.className = `min-w-[120px] md:w-full snap-center relative md:pl-8 pb-4 md:pb-8 group cursor-pointer`;
-                
-                div.innerHTML = `
-                    <div class="hidden md:block absolute left-0 top-1 w-5 h-5 bg-white border-4 ${isActive ? 'border-orange-500' : 'border-slate-300'} rounded-full transition-colors z-10"></div>
-                    <div class="px-4 py-2 md:p-0 rounded-lg border md:border-0 ${isActive ? 'bg-orange-600 md:bg-transparent text-white md:text-inherit' : 'bg-white md:bg-transparent border-slate-200'}">
-                        <h4 class="text-[10px] md:text-xs font-bold uppercase tracking-wide ${isActive ? 'text-white md:text-orange-600' : 'text-slate-400'}">${item.week}</h4>
-                        <p class="text-sm md:text-lg font-semibold whitespace-nowrap">${item.title}</p>
+                const el = document.createElement('div');
+                el.className = "relative md:pl-20 group";
+                el.innerHTML = `
+                    <div class="hidden md:flex absolute left-0 top-0 w-12 h-12 bg-[#0d2a30] text-[#c5a059] rounded-full items-center justify-center font-black border-2 border-[#c5a059] z-10 shadow-lg">${index + 1}</div>
+                    <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xl font-bold text-[#0d2a30]">${item.title}</h3>
+                            <span class="px-2 py-1 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded">${item.week}</span>
+                        </div>
+                        <ul class="space-y-2">${item.items.map(pt => `<li class="text-slate-500 flex items-center text-sm"><span class="w-1.5 h-1.5 bg-[#c5a059] rounded-full mr-3"></span>${pt}</li>`).join('')}</ul>
                     </div>
                 `;
-
-                div.onclick = () => {
-                    activeRoadmapIndex = index;
-                    renderRoadmap();
-                    showTimelineDetail(index);
-                };
-                timelineList.appendChild(div);
+                container.appendChild(el);
             });
-            if (activeRoadmapIndex === 0) showTimelineDetail(0);
         }
 
-        function showTimelineDetail(index) {
-            const item = roadmapData[index];
-            timelineDetail.innerHTML = `
-                <div class="animate-fade-in">
-                    <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-1">${item.title}</h3>
-                    <p class="text-orange-600 text-xs md:text-sm font-medium mb-4 md:mb-6">${item.week}</p>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="text-xs md:text-sm font-bold text-slate-700 mb-2 border-b border-slate-200 pb-1">Objectives</h4>
-                            <ul class="space-y-1">
-                                ${item.objectives.map(obj => `<li class="flex items-start text-xs md:text-sm text-slate-600"><span class="mr-2 text-orange-500">•</span>${obj}</li>`).join('')}
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="text-xs md:text-sm font-bold text-slate-700 mb-2 border-b border-slate-200 pb-1">Key Outputs</h4>
-                            <ul class="space-y-1">
-                                ${item.outputs.map(out => `<li class="flex items-start text-xs md:text-sm text-slate-600"><span class="mr-2 text-green-500">✓</span>${out}</li>`).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- Logic: Investment Chart ---
-        function initInvestment() {
+        function initCharts() {
             const ctx = document.getElementById('investmentChart').getContext('2d');
-            const colors = ['#ea580c', '#f97316', '#fb923c', '#fdba74', '#fed7aa', '#cbd5e1'];
-
-            const chart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: investmentData.map(d => d.label),
+                    labels: investmentData.labels,
                     datasets: [{
-                        data: investmentData.map(d => d.value),
-                        backgroundColor: colors,
-                        borderWidth: 2,
-                        borderColor: '#ffffff'
+                        data: investmentData.data,
+                        backgroundColor: ['#0d2a30', '#c5a059', '#1e3a40', '#d4af37', '#2a4a50', '#e2c275'],
+                        borderWidth: 0,
+                        hoverOffset: 20
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                            padding: 10,
-                            bodyFont: { size: 11 }
-                        }
-                    }
+                    cutout: '75%',
+                    plugins: { legend: { display: false } }
                 }
-            });
-
-            const tableBody = document.getElementById('investment-table-body');
-            investmentData.forEach((item, index) => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50 transition-colors cursor-default";
-                tr.innerHTML = `
-                    <td class="px-4 py-3 md:px-6 md:py-4">
-                        <div class="flex items-center">
-                            <span class="w-2 h-2 rounded-full mr-2" style="background-color: ${colors[index]}"></span>
-                            <div>
-                                <div class="font-medium text-slate-900 leading-tight">${item.label}</div>
-                                <div class="text-[10px] md:text-xs text-slate-400">${item.desc}</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="px-4 py-3 md:px-6 md:py-4 text-right whitespace-nowrap font-bold text-slate-600">₹${item.value.toLocaleString()}</td>
-                `;
-                tableBody.appendChild(tr);
             });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderFramework();
+            renderGrowthEngine();
             renderRoadmap();
-            initInvestment();
+            initCharts();
         });
     </script>
 </body>

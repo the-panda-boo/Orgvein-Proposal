@@ -41,28 +41,12 @@
         }
 
         /* --- INVESTMENT REDESIGN STYLES --- */
-        .investment-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .investment-row {
+            transition: background-color 0.2s ease;
         }
-        .investment-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+        .investment-row:hover {
+            background-color: #f8fafc;
         }
-
-        .milestone-dot {
-            position: relative;
-        }
-        .milestone-dot::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            width: 100%;
-            height: 2px;
-            background: #e2e8f0;
-            z-index: -1;
-        }
-        .milestone-dot:last-child::after { display: none; }
 
         .nav-item { position: relative; }
         .nav-item::after {
@@ -160,61 +144,48 @@
         </div>
     </section>
 
-    <!-- Investment Architecture (REDESIGNED: Professional & Clean) -->
+    <!-- Investment Architecture (REDESIGNED: Professional & Minimalist) -->
     <section id="investment" class="py-20 md:py-32 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div class="max-w-2xl text-left">
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-[#0d2a30] mb-4">Investment Architecture</h2>
-                    <p class="text-slate-500 text-base md:text-lg">Consolidated Phase 1 Strategic Engagement. Designed for maximum architectural impact.</p>
-                </div>
-                <div class="bg-[#0d2a30] text-white p-6 md:p-8 rounded-3xl shadow-xl w-full md:w-auto text-center md:text-left">
-                    <span class="text-[10px] uppercase font-black tracking-widest text-[#c5a059] block mb-1">Total Fee (Phase 1)</span>
-                    <span class="text-4xl md:text-5xl font-black">₹2,15,000</span>
-                </div>
-            </div>
-
-            <!-- Value Matrix Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24" id="investment-grid">
-                <!-- JS Injected Cards -->
-            </div>
-
-            <!-- Milestone Tracker -->
-            <div class="max-w-5xl mx-auto">
-                <div class="bg-slate-50 rounded-[3rem] p-8 md:p-16 border border-slate-100">
-                    <div class="text-center mb-12">
-                        <h4 class="text-[#c5a059] text-xs font-black uppercase tracking-widest mb-2">Payment Milestones</h4>
-                        <p class="text-2xl md:text-3xl font-bold text-[#0d2a30]">Engagement Cycle</p>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Executive Header -->
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 border-b-2 border-[#0d2a30] pb-8 gap-6">
+                    <div class="text-center md:text-left">
+                        <h2 class="text-4xl md:text-5xl font-black text-[#0d2a30] mb-2 uppercase tracking-tighter">Investment</h2>
+                        <p class="text-slate-400 font-medium uppercase tracking-widest text-[10px] md:text-xs">Phase 1: Foundation Architecture</p>
                     </div>
+                    <div class="text-center md:text-right">
+                        <span class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Consolidated Fee</span>
+                        <span class="text-4xl md:text-5xl font-black text-[#c5a059]">₹2,15,000</span>
+                    </div>
+                </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-                        <!-- Connection Line (Desktop) -->
-                        <div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-0.5 bg-slate-200"></div>
+                <!-- Workstream List -->
+                <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden mb-16" id="investment-list">
+                    <!-- JS Injected Line Items -->
+                </div>
 
-                        <!-- Step 1 -->
-                        <div class="flex flex-col items-center text-center relative z-10">
-                            <div class="w-20 h-20 rounded-full bg-[#0d2a30] text-[#c5a059] flex items-center justify-center text-2xl font-black mb-6 border-8 border-white shadow-lg">40%</div>
-                            <h5 class="text-lg font-bold text-[#0d2a30] mb-2">Kickoff</h5>
-                            <p class="text-sm text-slate-500">Commencement of business scope and govt. registrations.</p>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="flex flex-col items-center text-center relative z-10">
-                            <div class="w-20 h-20 rounded-full bg-[#0d2a30] text-[#c5a059] flex items-center justify-center text-2xl font-black mb-6 border-8 border-white shadow-lg">30%</div>
-                            <h5 class="text-lg font-bold text-[#0d2a30] mb-2">Mid-Phase</h5>
-                            <p class="text-sm text-slate-500">Approval of brand strategy, market positioning & visuals.</p>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="flex flex-col items-center text-center relative z-10">
-                            <div class="w-20 h-20 rounded-full bg-[#c5a059] text-[#0d2a30] flex items-center justify-center text-2xl font-black mb-6 border-8 border-white shadow-lg">30%</div>
-                            <h5 class="text-lg font-bold text-[#0d2a30] mb-2">Handover</h5>
-                            <p class="text-sm text-slate-500">Consolidation of blueprints & Phase 2 execution sign-off.</p>
-                        </div>
+                <!-- Commercial Milestones -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                        <span class="block text-2xl font-black text-[#0d2a30] mb-1">40%</span>
+                        <span class="block text-[10px] font-bold text-[#c5a059] uppercase tracking-widest mb-2">Kickoff</span>
+                        <p class="text-xs text-slate-500">Commencement of business scope and govt. registrations.</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center">
+                        <span class="block text-2xl font-black text-[#0d2a30] mb-1">30%</span>
+                        <span class="block text-[10px] font-bold text-[#c5a059] uppercase tracking-widest mb-2">Mid-Phase</span>
+                        <p class="text-xs text-slate-500">Approval of brand strategy, positioning and visuals.</p>
+                    </div>
+                    <div class="p-6 bg-[#0d2a30] rounded-2xl border border-[#0d2a30] text-center shadow-lg">
+                        <span class="block text-2xl font-black text-[#c5a059] mb-1">30%</span>
+                        <span class="block text-[10px] font-bold text-white uppercase tracking-widest mb-2">Final Sign-off</span>
+                        <p class="text-xs text-slate-400">Consolidation of blueprints & Phase 2 sign-off.</p>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -248,12 +219,12 @@
         ];
 
         const investmentData = [
-            { section: "Brand Strategy", fee: 45000, value: "Design-ready visual language that converts travelers." },
-            { section: "Systems & ERP", fee: 45000, value: "Automated tech hub designed for high-volume scale." },
-            { section: "Financial Design", fee: 40000, value: "Profit-focused unit economics & inter-company boundaries." },
-            { section: "Legal & Structure", fee: 30000, value: "Entity registration and parent-entity protective firewall." },
-            { section: "Org & HR Design", fee: 30000, value: "Talent roadmap, hiring plan and performance logic." },
-            { section: "Market Strategy", fee: 25000, value: "Absolute clarity on target segments and positioning." }
+            { section: "Brand Strategy & Visual Direction", fee: 45000, value: "Design-ready visual language that converts travelers." },
+            { section: "Systems & ERP Architecture", fee: 45000, value: "Automated tech hub designed for high-volume scale." },
+            { section: "Financial & Unit Economics", fee: 40000, value: "Profit-focused architecture & inter-company boundaries." },
+            { section: "Legal & Corporate Structure", fee: 30000, value: "Entity registration and parent-entity firewall." },
+            { section: "Org Design & HR Architecture", fee: 30000, value: "Talent roadmap, hiring plan and performance logic." },
+            { section: "Business & Market Strategy", fee: 25000, value: "Absolute clarity on target segments and positioning." }
         ];
 
         function renderEngine() {
@@ -319,29 +290,32 @@
             });
         }
 
-        function renderInvestmentMatrix() {
-            const grid = document.getElementById('investment-grid');
-            investmentData.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "investment-card bg-white p-8 rounded-3xl border border-slate-100 flex flex-col text-left shadow-sm";
-                card.innerHTML = `
-                    <div class="flex-grow">
-                        <h4 class="text-lg font-bold text-[#0d2a30] mb-2 leading-tight">${item.section}</h4>
-                        <p class="text-sm text-slate-500 leading-relaxed mb-6">${item.value}</p>
+        function renderInvestmentList() {
+            const list = document.getElementById('investment-list');
+            investmentData.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = `investment-row p-6 md:p-8 flex flex-col md:flex-row items-center gap-4 md:gap-8 ${index !== investmentData.length - 1 ? 'border-b border-slate-50' : ''}`;
+                row.innerHTML = `
+                    <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 text-slate-300 font-black text-xs border border-slate-100">
+                        ${index + 1}
                     </div>
-                    <div class="pt-6 border-t border-slate-50 flex items-center justify-between">
-                        <span class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Consulting Fee</span>
-                        <span class="text-xl font-black text-[#c5a059]">₹${item.fee.toLocaleString()}</span>
+                    <div class="flex-grow text-center md:text-left">
+                        <h4 class="text-base md:text-lg font-bold text-[#0d2a30] leading-tight mb-1">${item.section}</h4>
+                        <p class="text-xs md:text-sm text-slate-400 font-medium">${item.value}</p>
+                    </div>
+                    <div class="shrink-0 text-center md:text-right">
+                        <span class="block text-[8px] font-black text-slate-300 uppercase tracking-widest mb-1">Consulting Fee</span>
+                        <span class="text-lg font-black text-[#c5a059]">₹${item.fee.toLocaleString()}</span>
                     </div>
                 `;
-                grid.appendChild(card);
+                list.appendChild(row);
             });
         }
 
         window.onload = () => {
             renderEngine();
             renderRoadmap();
-            renderInvestmentMatrix();
+            renderInvestmentList();
         };
     </script>
 </body>
